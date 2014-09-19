@@ -2,7 +2,7 @@
 <head>
 <title>Ozylog{title}</title>
 <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
-<link rel="stylesheet" href="<?php echo base_url(); ?>/login/assets/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="<?php echo base_url(); ?>assets/bootstrap/css/bootstrap.min.css">
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <style type="text/css">
@@ -26,6 +26,7 @@
 </style>
 </head>
 <body style="color: #413F3F;background-color: #EFF4F5;margin:auto;">
+
     <div id="header">
 
     <!--Navigation Bar -->   
@@ -79,16 +80,16 @@
 	<div class="container-fluid" >
 	<span class="hidden-xs">
     <div class="row" id="center" style="background-color:#D0DDD8;padding-top: 75px;padding-bottom: 10px;">
-        <div class="col-xs-4 col-lg-4 col-md-4" style="color:#0C9C74;"><i class="fa fa-search fa-5x fa-border" style="border: solid 1px #0C9C74;"></i><br><h4>Search Your Favorite Story</h4></div>
-        <div class="col-xs-4 col-lg-4 col-md-4" style="color:#0C9C74;"><i class="fa fa-file-text-o fa-5x fa-border" style="border: solid 1px #0C9C74;"></i><br><h4>Read The Full Story With Interesting</h4></div>
-        <div class="col-xs-4 col-lg-4 col-md-4" style="color:#0C9C74;"><i class="fa fa-bell-o fa-5x fa-border" style="border: solid 1px #0C9C74;"></i><br><h4>Ring the Bell (Hand Shake Well)</h4></div>
+        <div class="col-xs-4 col-lg-4 col-md-4" style="color:#0C9C74;"><i class="fa fa-search fa-5x fa-border" style="border: solid 1px #0C9C74;"></i><br><h4>Search <!-- Your Favorite Story --></h4></div>
+        <div class="col-xs-4 col-lg-4 col-md-4" style="color:#0C9C74;"><i class="fa fa-file-text-o fa-5x fa-border" style="border: solid 1px #0C9C74;"></i><br><h4>Read <!-- Story --> </h4></div>
+        <div class="col-xs-4 col-lg-4 col-md-4" style="color:#0C9C74;"><i class="fa fa-bell-o fa-5x fa-border" style="border: solid 1px #0C9C74;"></i><br><h4>Ring <!-- the Bell (Hand Shake Well) --></h4></div>
     </div>
     </span>
     <span class="hidden-md hidden-sm hidden-lg" >
     <div class="row" id="center" style="background-color:#D0DDD8;padding-top: 70px;padding-bottom: 0px;">
         <div class="col-xs-4 col-lg-4 col-md-4" style="color:#0C9C74;"><i class="fa fa-search fa-3x fa-border" style="border: solid 1px #0C9C74;"></i><br><h6>Search</h6></div>
         <div class="col-xs-4 col-lg-4 col-md-4" style="color:#0C9C74;"><i class="fa fa-file-text-o fa-3x fa-border" style="border: solid 1px #0C9C74;"></i><br><h6>Read</h6></div>
-        <div class="col-xs-4 col-lg-4 col-md-4" style="color:#0C9C74;"><i class="fa fa-bell-o fa-3x fa-border" style="border: solid 1px #0C9C74;"></i><br><h6>Hand Shake</h6></div>
+        <div class="col-xs-4 col-lg-4 col-md-4" style="color:#0C9C74;"><i class="fa fa-bell-o fa-3x fa-border" style="border: solid 1px #0C9C74;"></i><br><h6>Ring<!-- Hand Shake --></h6></div>
     </div>
     </span>
     </div>
