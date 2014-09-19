@@ -2,3 +2,5 @@
 
 $a = "see";
 $b = "dg";
+
+echo $a;
