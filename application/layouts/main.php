@@ -1,36 +1,36 @@
 <html>
 <head>
-<title>Ozylog{title}</title>
-<link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
-<link rel="stylesheet" href="<?php echo base_url(); ?>assets/bootstrap/css/bootstrap.min.css">
-<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<style type="text/css">
-	#center {
-    text-align: center;
-}
+  <title>Ozylog{title}</title>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="<?php echo base_url(); ?>assets/bootstrap/css/bootstrap.min.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <style type="text/css">
+    	#center {
+        text-align: center;
+    }
 
-.ico-information {
-    display: inline-block;
-}
-#footer
-{
-    height: 50px;
-    width: 100%;
-    margin-bottom: 0px;
-}
-.container-full {
-  margin: 0 auto;
-  width: 100%;
-}
-</style>
+    .ico-information {
+        display: inline-block;
+    }
+    #footer
+    {
+        height: 50px;
+        width: 100%;
+        margin-bottom: 0px;
+    }
+    .container-full {
+      margin: 0 auto;
+      width: 100%;
+    }
+  </style>
 </head>
 <body style="color: #413F3F;background-color: #EFF4F5;margin:auto;">
 
     <div id="header">
 
     <!--Navigation Bar -->   
-		 <div class="navbar navbar-inverse navbar-fixed-top">
+<div class="navbar navbar-inverse navbar-fixed-top">
   <div class="navbar-header">
     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-inverse-collapse">
       <span class="icon-bar"></span>
@@ -44,7 +44,7 @@
       <li class="active"><a href="#">Active</a></li>
       <li><a href="#">Link</a></li>
       <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <b class="caret"></b></a>
         <ul class="dropdown-menu">
           <li><a href="#">Action</a></li>
           <li><a href="#">Another action</a></li>
@@ -60,17 +60,38 @@
       <input type="text" class="form-control col-lg-8" placeholder="Search">
     </form>
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="#">Link</a></li>
-      <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-        <ul class="dropdown-menu">
-          <li><a href="#">Action</a></li>
-          <li><a href="#">Another action</a></li>
-          <li><a href="#">Something else here</a></li>
-          <li class="divider"></li>
-          <li><a href="#">Separated link</a></li>
-        </ul>
-      </li>
+
+    <?php 
+      $user = getCurrentUser();
+      if($user['logged_in']==true)
+      {
+    ?>
+
+        <li><a href="#">Welcome User</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Account <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">Settings</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Log Out</a></li>
+          </ul>
+        </li>
+
+
+    <?php
+      }
+      else
+      {
+    ?>
+        <li><a href="#">Login</a></li>
+        <li><a href="#">Register</a></li>
+
+    <?php
+      }
+    ?>
+
     </ul>
   </div>
 </div>
