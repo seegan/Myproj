@@ -14,8 +14,8 @@
 | path to your installation.
 |
 */
-$config['base_url']	= 'http://localhost/myproj/Myproj';
-var_dump($_SERVER); die();
+$config['base_url']	= 'http://'.$_SERVER['HTTP_HOST'].'/myproj/Myproj';
+
 /*
 |--------------------------------------------------------------------------
 | Index File
