@@ -15,7 +15,7 @@
 |
 */
 $config['base_url']	= 'http://localhost/myproj/Myproj';
-
+var_dump($_SERVER); die();
 /*
 |--------------------------------------------------------------------------
 | Index File
