@@ -120,12 +120,59 @@
     <div>
     	{body}
     </div>
-    
-   <div class="container-fluid" style="background-color:#D0DDD8;">
-       <h1>Footer is Here</h1>
+  <!-- Footer content --> 
+    <div class="container-fluid" style="background-color:#31976E;margin-top:10px;padding-top:20px;padding-bottom: 20px;">
+      <div class="container">
+      <div class="row">
+        <div class="col-lg-3 col-md-3 col-sm-3" style="color:#FFF">
+
+          <h4><i class="fa fa-bullhorn">&nbsp;&nbsp;Popular Posts</i></h4>
+            <div style="margin-left:27px">
+              List group item heading <br>
+              List group item heading <br>
+              List group item heading <br>
+              List group item heading <br> 
+            </div> 
+        </div style="margin-left:27px">
+
+        <div class="col-lg-3 col-md-3 col-sm-3" style="color:#FFF">
+          <h4><i class="fa fa-file-text">&nbsp;&nbsp;Posts By Users</i></h4>
+            <div style="margin-left:27px">
+              List group item heading <br>
+              List group item heading <br>
+              List group item heading <br>
+              List group item heading <br> 
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-3 col-sm-3" style="color:#FFF">
+          <h4><i class="fa fa-users">&nbsp;&nbsp;Top Ringers</i></h4>
+          <div style="margin-left:27px">
+            <i class="fa fa-user">&nbsp;&nbsp;Seegan</i><br>
+            <i class="fa fa-user">&nbsp;&nbsp;Mahesh</i><br>
+            <i class="fa fa-user">&nbsp;&nbsp;Karthick</i><br>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-3 col-sm-3" style="color:#FFF">
+          <h4><i class="fa fa-umbrella">&nbsp;&nbsp;Follow us on</i></h4>
+          <div style="margin-left:27px">
+            <i class="fa fa-facebook-square">&nbsp;&nbsp;Facebook</i><br>
+            <i class="fa fa-twitter-square">&nbsp;&nbsp;Twitter</i><br>
+            <i class="fa fa-pinterest-square">&nbsp;&nbsp;Pinterest</i><br>
+            <i class="fa fa-umbrella">&nbsp;&nbsp;Follow us on</i><br>
+          </div>
+
+        </div>
+      </div>
+      </div>
     </div>
-   
-   <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+    <div class="container-fluid" style="background-color:#115C3E;padding:10px;height:35px;color:#FFF">
+      <div class="row text-center"><i class="fa fa-copyright">&nbsp;&nbsp;All Rights are reserved by axaxa.com 2014.</i></div>
+    </div>
+  <!-- End of Footer content --> 
+  <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 </body>
 </html>

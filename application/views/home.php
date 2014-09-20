@@ -9,7 +9,7 @@
 	<div class="row">
 		<span class="hidden-xs">
 			<div class="col-lg-7 col-md-7 col-sm-7">
-				<div style="color:#FFF;background-color:#5E8374;width:100%;padding:5px"> 
+				<div style="color:#FFF;background-color:#31976E;width:100%;padding:5px"> 
 					<h4>Latest Stories are Listed Here...</h4>
 				</div>
 				<div class="list-group" style="margin-bottom:10px">
