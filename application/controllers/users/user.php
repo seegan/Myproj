@@ -29,11 +29,11 @@ class User extends CI_Controller {
 		$user = getCurrentUser();
 		if($user['logged_in']!=true)
 		{
-			var_dump("you can register");
+			$this->session->set_flashdata('success', 'Logged in successfully!');
 		}
 		else
 		{
-			$this->session->set_flashdata('succ', 'seegan');
+			$this->session->set_flashdata('error', 'You are already registered!');
 			redirect('/');
 		}
 	}
