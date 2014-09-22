@@ -12,7 +12,7 @@
  */
 	function getCurrentUser($return='')
 	{
-		$data['logged_in'] = true;
+		$data['logged_in'] = false;
 
 		return $data;
 	}

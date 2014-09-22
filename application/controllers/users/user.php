@@ -29,6 +29,11 @@ class User extends CI_Controller {
 		$user = getCurrentUser();
 		if($user['logged_in']!=true)
 		{
+
+			$this->title="test";
+			$this->layout="Yes";
+			$this->load->view('registration');
+
 			$this->session->set_flashdata('success', 'Logged in successfully!');
 		}
 		else
@@ -37,14 +42,7 @@ class User extends CI_Controller {
 			redirect('/');
 		}
 	}
-
-	public function check()
-	{
-		
-		$this->title="test";
-		$this->layout="Yes";
-		$this->load->view('registration');
-	}
+	
 }
 
 /* End of file welcome.php */
