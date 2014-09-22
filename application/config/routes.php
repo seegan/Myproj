@@ -42,5 +42,13 @@ $route['default_controller'] = "welcome";
 $route['404_override'] = '';
 
 
+//URL Routing
+
+//For user controller folder
+
+$route['user'] = "users/user";
+$route['user/(:any)'] = "users/user/$1";
+
+
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */
