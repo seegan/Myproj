@@ -11,7 +11,7 @@
  * @version		Version 1.0
  * @link		http://www.yottado.com
  */
-class Common_model extends CI_Model {
+class common_model extends CI_Model {
 
     /**
      * Constructor 
