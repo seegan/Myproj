@@ -116,6 +116,18 @@
     </span>
     </div>
 	<!-- End of Header Container -->
+
+  <!-- Info message -->
+  <?php if($this->session->flashdata('success')) { ?>
+    <div class="alert alert-success" role="alert"><?php echo $this->session->flashdata('success');  ?></div>
+  <?php } if($this->session->flashdata('info')) { ?>
+    <div class="alert alert-info" role="alert"><?php echo $this->session->flashdata('info');  ?></div>
+  <?php } if($this->session->flashdata('warning')) { ?>
+    <div class="alert alert-warning" role="alert"><?php echo $this->session->flashdata('warning');  ?></div>
+  <?php } if($this->session->flashdata('error')) { ?>
+    <div class="alert alert-danger" role="alert"><?php echo $this->session->flashdata('error');  ?></div>
+  <?php } ?>
+  <!-- End of info message -->  
   <!-- Breadcrumb -->
   <div class="container-fluid" >
     <ol class="breadcrumb">
@@ -125,12 +137,7 @@
     </ol>
   </div>
   <!-- End of Breadcrumb -->
-  <!-- Info message -->
-  <div class="alert alert-success" role="alert">hii mokka seega</div>
-  <div class="alert alert-info" role="alert">...</div>
-  <div class="alert alert-warning" role="alert">...</div>
-  <div class="alert alert-danger" role="alert">...</div>
-  <!-- End of info message -->  
+
     <div>
     	{body}
     </div>
