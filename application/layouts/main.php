@@ -129,7 +129,7 @@
   <?php } ?>
   <!-- End of info message -->  
   <!-- Breadcrumb -->
-  <div class="container-fluid" >
+  <div class="container-fluid" style="margin-bottom:10px;" >
     <ol class="breadcrumb">
       <li><a href="#">Home</a></li>
       <li><a href="#">Library</a></li>
