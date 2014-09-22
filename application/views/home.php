@@ -1,10 +1,4 @@
-<div class="container-fluid" >
-	<ol class="breadcrumb">
-		<li><a href="#">Home</a></li>
-		<li><a href="#">Library</a></li>
-		<li class="active">Data</li>
-	</ol>
-</div>
+
 <div class="container" style="margin-top:10px;">
 	<div class="row">
 		<span class="hidden-xs">

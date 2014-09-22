@@ -116,7 +116,21 @@
     </span>
     </div>
 	<!-- End of Header Container -->
-    
+  <!-- Breadcrumb -->
+  <div class="container-fluid" >
+    <ol class="breadcrumb">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Library</a></li>
+      <li class="active">Data</li>
+    </ol>
+  </div>
+  <!-- End of Breadcrumb -->
+  <!-- Info message -->
+  <div class="alert alert-success" role="alert">...</div>
+  <div class="alert alert-info" role="alert">...</div>
+  <div class="alert alert-warning" role="alert">...</div>
+  <div class="alert alert-danger" role="alert">...</div>
+  <!-- End of info message -->  
     <div>
     	{body}
     </div>
