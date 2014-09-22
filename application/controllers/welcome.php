@@ -19,6 +19,7 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
+		$this->title = "seegan";
 		$this->layout="Yes";
 		$this->load->view('home');
 	}

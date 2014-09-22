@@ -10,7 +10,7 @@ class Layout extends CI_Hooks{
 
       if ($this->CI->layout == "Yes"){
         //define default layout on
-       $default = BASEPATH .'../application/layouts/main.php';
+        $default = BASEPATH .'../application/layouts/main.php';
 
         $layout = $this->CI->load->file($default, true);
 

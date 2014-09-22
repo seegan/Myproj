@@ -10,7 +10,8 @@
 |
 */
 
-$hook['display_override'][] = array('class' => 'layout',
+$hook['display_override'][] = array(
+								'class' => 'layout',
                                 'function' => 'show_layout',
                                 'filename' => 'layout.php',
                                 'filepath' => 'hooks'
