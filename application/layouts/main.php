@@ -68,7 +68,7 @@
       {
     ?>
 
-        <li><a href="#">Welcome User</a></li>
+        <li><a href="#">Welcome <?php echo $user['user_name']; ?></a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Account <b class="caret"></b></a>
           <ul class="dropdown-menu">

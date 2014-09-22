@@ -12,6 +12,7 @@
  */
 	function getCurrentUser($return='')
 	{
+		$data['user_name'] = 'Suji';
 		$data['logged_in'] = false;
 
 		return $data;
