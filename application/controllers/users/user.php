@@ -17,10 +17,15 @@ class User extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see http://codeigniter.com/user_guide/general/urls.html
 	 */
+	public function __construct()
+	{
+		parent::__construct();
+		$this->layout="Yes";
+	}
+
 	public function index()
 	{
 		$this->title = "seegan";
-		$this->layout="Yes";
 		$this->load->view('home');
 	}
 
@@ -29,18 +34,24 @@ class User extends CI_Controller {
 		$user = getCurrentUser();
 		if($user['logged_in']!=true)
 		{
-
-			$this->title="test";
-			$this->layout="Yes";
-			$this->load->view('registration');
-
-			$this->session->set_flashdata('success', 'Logged in successfully!');
+			if ($_SERVER['REQUEST_METHOD'] === 'POST') 
+			{
+				$display_name = $this->input->post('name');
+				$display_name = $this->input->post('name');
+				$display_name = $this->input->post('name');
+				$display_name = $this->input->post('name');
+			}
+			else
+			{
+				$this->load->view('registration');
+			}			
 		}
 		else
 		{
 			$this->session->set_flashdata('error', 'You are already registered!');
 			redirect('/');
 		}
+
 	}
 	
 }
