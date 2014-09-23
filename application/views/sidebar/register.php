@@ -1,5 +1,5 @@
 <div class="well">
-<?php echo validation_errors(); ?>
+
 
   <form class="form-horizontal" action="<?php echo site_url('/user/register'); ?>" method="POST">
     <fieldset>
