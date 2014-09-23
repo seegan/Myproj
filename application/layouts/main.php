@@ -38,7 +38,7 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href="#">Brand</a>
+    <a class="navbar-brand" href="<?php echo site_url(); ?>">Brand</a>
   </div>
   <div class="navbar-collapse collapse navbar-inverse-collapse">
     <ul class="nav navbar-nav">
@@ -87,7 +87,7 @@
       {
     ?>
         <li><a href="#">Login</a></li>
-        <li><a href="#">Register</a></li>
+        <li><a href="<?php echo site_url('user/register'); ?>">Register</a></li>
 
     <?php
       }
@@ -100,21 +100,21 @@
 
 	<!-- Header Container -->
 	<div class="container-fluid" >
-	<span class="hidden-xs">
-    <div class="row" id="center" style="background-color:#D0DDD8;padding-top: 75px;padding-bottom: 10px;">
-        <div class="col-xs-4 col-lg-4 col-md-4" style="color:#0C9C74;"><i class="fa fa-search fa-5x fa-border" style="border: solid 1px #0C9C74;"></i><br><h4>Search <!-- Your Favorite Story --></h4></div>
-        <div class="col-xs-4 col-lg-4 col-md-4" style="color:#0C9C74;"><i class="fa fa-file-text-o fa-5x fa-border" style="border: solid 1px #0C9C74;"></i><br><h4>Read <!-- Story --> </h4></div>
-        <div class="col-xs-4 col-lg-4 col-md-4" style="color:#0C9C74;"><i class="fa fa-bell-o fa-5x fa-border" style="border: solid 1px #0C9C74;"></i><br><h4>Ring <!-- the Bell (Hand Shake Well) --></h4></div>
-    </div>
+  	<!-- <span class="hidden-xs">
+      <div class="row" id="center" style="background-color:#D0DDD8;padding-top: 75px;padding-bottom: 10px;">
+          <div class="col-xs-4 col-lg-4 col-md-4" style="color:#0C9C74;"><i class="fa fa-search fa-5x fa-border" style="border: solid 1px #0C9C74;"></i><br><h4>Search </h4></div>
+          <div class="col-xs-4 col-lg-4 col-md-4" style="color:#0C9C74;"><i class="fa fa-file-text-o fa-5x fa-border" style="border: solid 1px #0C9C74;"></i><br><h4>Read </h4></div>
+          <div class="col-xs-4 col-lg-4 col-md-4" style="color:#0C9C74;"><i class="fa fa-bell-o fa-5x fa-border" style="border: solid 1px #0C9C74;"></i><br><h4>Ring </h4></div>
+      </div>
     </span>
     <span class="hidden-md hidden-sm hidden-lg" >
-    <div class="row" id="center" style="background-color:#D0DDD8;padding-top: 70px;padding-bottom: 0px;">
-        <div class="col-xs-4 col-lg-4 col-md-4" style="color:#0C9C74;"><i class="fa fa-search fa-3x fa-border" style="border: solid 1px #0C9C74;"></i><br><h6>Search</h6></div>
-        <div class="col-xs-4 col-lg-4 col-md-4" style="color:#0C9C74;"><i class="fa fa-file-text-o fa-3x fa-border" style="border: solid 1px #0C9C74;"></i><br><h6>Read</h6></div>
-        <div class="col-xs-4 col-lg-4 col-md-4" style="color:#0C9C74;"><i class="fa fa-bell-o fa-3x fa-border" style="border: solid 1px #0C9C74;"></i><br><h6>Ring<!-- Hand Shake --></h6></div>
-    </div>
-    </span>
-    </div>
+      <div class="row" id="center" style="background-color:#D0DDD8;padding-top: 70px;padding-bottom: 0px;">
+          <div class="col-xs-4 col-lg-4 col-md-4" style="color:#0C9C74;"><i class="fa fa-search fa-3x fa-border" style="border: solid 1px #0C9C74;"></i><br><h6>Search</h6></div>
+          <div class="col-xs-4 col-lg-4 col-md-4" style="color:#0C9C74;"><i class="fa fa-file-text-o fa-3x fa-border" style="border: solid 1px #0C9C74;"></i><br><h6>Read</h6></div>
+          <div class="col-xs-4 col-lg-4 col-md-4" style="color:#0C9C74;"><i class="fa fa-bell-o fa-3x fa-border" style="border: solid 1px #0C9C74;"></i><br><h6>Ring</h6></div>
+      </div>
+    </span> -->
+  </div>
 	<!-- End of Header Container -->
 
   <!-- Info message -->
@@ -142,7 +142,7 @@
     	{body}
     </div>
   <!-- Footer content --> 
-    <div class="container-fluid" style="background-color:#51A5BA;margin-top:10px;padding-top:20px;padding-bottom: 20px;">
+    <div class="container-fluid" style="background-color:#51BA77;margin-top:10px;padding-top:20px;padding-bottom: 20px;">
       <div class="container">
       <div class="row">
         <div class="col-lg-3 col-md-3 col-sm-3" style="color:#FFF">
@@ -189,7 +189,7 @@
       </div>
     </div>
 
-    <div class="container-fluid" style="background-color:#6BCAE2;padding:10px;height:35px;color:#FFF">
+    <div class="container-fluid" style="background-color:#31976E;padding:10px;height:35px;color:#FFF">
       <div class="row text-center"><i class="fa fa-copyright">&nbsp;&nbsp;All Rights are reserved by axaxa.com 2014.</i></div>
     </div>
   <!-- End of Footer content --> 
