@@ -18,10 +18,13 @@ class Welcome extends CI_Controller {
 	 * @see http://codeigniter.com/user_guide/general/urls.html
 	 */
 	public function index()
-	{
+	{/*
 		$this->title = "seegan";
 		$this->layout="Yes";
-		$this->load->view('home');
+		$this->load->view('home');*/
+		$this->title = "seegan";
+		$this->layout="Yes";
+		$this->load->view('posts/posts');
 	}
 }
 

@@ -142,7 +142,7 @@
     	{body}
     </div>
   <!-- Footer content --> 
-    <div class="container-fluid" style="background-color:#31976E;margin-top:10px;padding-top:20px;padding-bottom: 20px;">
+    <div class="container-fluid" style="background-color:#51A5BA;margin-top:10px;padding-top:20px;padding-bottom: 20px;">
       <div class="container">
       <div class="row">
         <div class="col-lg-3 col-md-3 col-sm-3" style="color:#FFF">
@@ -189,7 +189,7 @@
       </div>
     </div>
 
-    <div class="container-fluid" style="background-color:#115C3E;padding:10px;height:35px;color:#FFF">
+    <div class="container-fluid" style="background-color:#6BCAE2;padding:10px;height:35px;color:#FFF">
       <div class="row text-center"><i class="fa fa-copyright">&nbsp;&nbsp;All Rights are reserved by axaxa.com 2014.</i></div>
     </div>
   <!-- End of Footer content --> 
