@@ -21,6 +21,11 @@ class User extends CI_Controller {
 	{
 		parent::__construct();
 		$this->layout="Yes";
+
+		$this->user = getCurrentUser();
+		$this->siteStatus = siteStatus();
+
+		$this->load->library('form_validation');
 	}
 
 	public function index()
@@ -31,18 +36,41 @@ class User extends CI_Controller {
 
 	public function register()
 	{
-		$user = getCurrentUser();
-		if($user['logged_in']!=true)
+
+		if($this->user['logged_in']!=true)
 		{
 			if ($_SERVER['REQUEST_METHOD'] === 'POST') 
 			{
-				$display_name = $this->input->post('name');
-				$display_name = $this->input->post('name');
-				$display_name = $this->input->post('name');
-				$display_name = $this->input->post('name');
+				if( $this->siteStatus['allow_registration'] )
+				{
+					$display_name = $this->input->post('name',TRUE);
+					$user_name = $this->input->post('username', TRUE);
+					$password = $this->input->post('password');
+					$re_password = $this->input->post('repassword');
+
+					$this->form_validation->set_rules('name', 'Display Name', 'required');
+					$this->form_validation->set_rules('username', 'User Name', 'required');
+					$this->form_validation->set_rules('password', 'Password', 'required');
+					$this->form_validation->set_rules('repassword', 'Password Confirmation', 'required|matches[password]');
+					
+					if ($this->form_validation->run() == FALSE)
+					{
+						$this->load->view('registration');
+					}
+					else
+					{
+						var_dump("validate true");
+					}
+				}
+				else
+				{
+					$this->session->set_flashdata('info', $this->siteStatus['registration_denny_msg']);
+					redirect('user/register');
+				}
 			}
 			else
 			{
+
 				$this->load->view('registration');
 			}			
 		}
