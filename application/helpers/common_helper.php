@@ -10,10 +10,21 @@
  * @param	string
  * @return	string
  */
+
+	function siteStatus()
+	{
+		$data['registration_denny_msg'] = 'New Users Not Allowed to register now!';
+		$data['allow_registration'] = TRUE;
+
+		return $data;
+	}
+
+
 	function getCurrentUser($return='')
 	{
 		$data['user_name'] = 'Suji';
 		$data['logged_in'] = true;
+		$data['logged_in'] = FALSE;
 
 		return $data;
 	}

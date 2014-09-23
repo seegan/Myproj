@@ -17,14 +17,20 @@ class Welcome extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see http://codeigniter.com/user_guide/general/urls.html
 	 */
+	public function __construct()
+	{
+		parent::__construct();
+		$this->layout="Yes";
+	}
+
 	public function index()
-	{/*
+	{
 		$this->title = "seegan";
 		$this->layout="Yes";
-		$this->load->view('home');*/
-		$this->title = "seegan";
-		$this->layout="Yes";
+		$this->load->view('home');
+		/*$this->title = "seegan";
 		$this->load->view('posts/posts');
+		$this->load->view('home');*/
 	}
 }
 
