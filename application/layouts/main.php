@@ -23,6 +23,12 @@
       margin: 0 auto;
       width: 100%;
     }
+    div.list-group-item:hover,
+    div.list-group-item:focus {
+      color: #555;
+      text-decoration: none;
+      background-color: #f5f5f5;
+    }
   </style>
 </head>
 <body style="color: #413F3F;background-color: #EFF4F5;margin:auto;">
