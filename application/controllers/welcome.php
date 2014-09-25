@@ -29,7 +29,7 @@ class Welcome extends CI_Controller {
 		$this->layout="Yes";
 		$this->load->view('home');
 		this->title = "seegan";*/
-		$this->load->view('home');
+		$this->load->view('posts/posts');
 	}
 }
 
