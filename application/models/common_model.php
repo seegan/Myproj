@@ -33,35 +33,12 @@ class common_model extends CI_Model {
 	 */
 
 	//insert to database
-	function insertData($table,$insertData,$condition='',$get_exist='')
+	function insertData($table,$insertData)
 	{
-		$this->db->from($table);
-		if($condition=='')
-		{
-			$this->db->where($insertData);
-		}
-		else
-		{
-			$this->db->where($condition);
-		}
-    	
-    	$query = $this->db->get();
-    	if ($query->num_rows() > 0){
-    		if($get_exist!='')
-    		{
-    			return $query->row('id');
-    		}
-    		else
-    		{
-    			return false;
-    		}
-
-    	}
-    	else{
-			$this->db->insert($table,$insertData);
-			return $this->db->insert_id();
-    	}
+		$this->db->insert($table,$insertData);
+		return $this->db->insert_id();
     }//End of insertData Function
+
 
 	//update datas
 	function updateData($table="",$updateData=array(),$condition=array())
@@ -72,15 +49,9 @@ class common_model extends CI_Model {
 
 	function selectData($table="",$selectData=array(),$condition=array(),$dist="")
 	{
-		
-
 		if(count($condition)>0)	{	
 	 		$this->db->where($condition);
 	 	}
-	 	if($dist=="dist")
-	 	{
- 			$this->db->order_by('id','desc'); 
-		}
 		$this->db->from($table);
 	 	$this->db->select($selectData);
 		$result = $this->db->get();

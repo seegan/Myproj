@@ -106,7 +106,7 @@
 
 	<!-- Header Container -->
 	<div class="container-fluid" >
-  	<!-- <span class="hidden-xs">
+  	<span class="hidden-xs">
       <div class="row" id="center" style="background-color:#D0DDD8;padding-top: 75px;padding-bottom: 10px;">
           <div class="col-xs-4 col-lg-4 col-md-4" style="color:#0C9C74;"><i class="fa fa-search fa-5x fa-border" style="border: solid 1px #0C9C74;"></i><br><h4>Search </h4></div>
           <div class="col-xs-4 col-lg-4 col-md-4" style="color:#0C9C74;"><i class="fa fa-file-text-o fa-5x fa-border" style="border: solid 1px #0C9C74;"></i><br><h4>Read </h4></div>
@@ -119,7 +119,7 @@
           <div class="col-xs-4 col-lg-4 col-md-4" style="color:#0C9C74;"><i class="fa fa-file-text-o fa-3x fa-border" style="border: solid 1px #0C9C74;"></i><br><h6>Read</h6></div>
           <div class="col-xs-4 col-lg-4 col-md-4" style="color:#0C9C74;"><i class="fa fa-bell-o fa-3x fa-border" style="border: solid 1px #0C9C74;"></i><br><h6>Ring</h6></div>
       </div>
-    </span> -->
+    </span>
   </div>
 	<!-- End of Header Container -->
 

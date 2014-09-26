@@ -13,8 +13,16 @@
 
 	function siteStatus()
 	{
-		$data['registration_denny_msg'] = 'New Users Not Allowed to register now!';
+
 		$data['allow_registration'] = TRUE;
+		$data['registration_denny_msg'] = 'New Users Not Allowed to register now!';
+
+		//Registered users status active/deactive
+		$data['allow_register_active'] = 1;
+
+
+		$data['allow_login'] = TRUE;
+		$data['login_denny_msg'] = 'Login not allowed now!';
 
 		return $data;
 	}
@@ -23,7 +31,6 @@
 	function getCurrentUser($return='')
 	{
 		$data['user_name'] = 'Suji';
-		$data['logged_in'] = true;
 		$data['logged_in'] = FALSE;
 
 		return $data;

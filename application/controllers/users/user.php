@@ -26,6 +26,8 @@ class User extends CI_Controller {
 		$this->siteStatus = siteStatus();
 
 		$this->load->library('form_validation');
+		$this->load->helper('user');
+		$this->load->model('common_model');
 	}
 
 	public function index()
@@ -49,7 +51,7 @@ class User extends CI_Controller {
 					$re_password = $this->input->post('repassword');
 
 					$this->form_validation->set_rules('name', 'Display Name', 'required');
-					$this->form_validation->set_rules('username', 'User Name', 'required');
+					$this->form_validation->set_rules('username', 'User Name', 'required|min_length[5]|max_length[12]|is_unique[ring_users.user_login]');
 					$this->form_validation->set_rules('password', 'Password', 'required');
 					$this->form_validation->set_rules('repassword', 'Password Confirmation', 'required|matches[password]');
 					
@@ -59,7 +61,26 @@ class User extends CI_Controller {
 					}
 					else
 					{
-						var_dump("validate true");
+						$can_register = allowRegister($user_name,$password,$re_password);
+						if($can_register)
+						{
+							$register_status = userRegister(array('user_login' => $user_name, 'user_pass' => md5($password), 'display_name' => $display_name , 'user_registered' => date("d-m-Y H:i:s"), 'user_status' => $this->siteStatus['allow_register_active']  ) );
+							if($register_status)
+							{
+								$this->session->set_flashdata('success', 'Account Created!');
+								redirect('/');
+							}
+							else
+							{
+								$this->session->set_flashdata('error', 'Account creation Failed! Please try again!');
+								redirect('user/register');
+							}
+						}
+						else
+						{
+							$this->session->set_flashdata('error', 'Username already exist! Or Invalid password method!');
+							redirect('user/register');
+						}
 					}
 				}
 				else
@@ -70,7 +91,6 @@ class User extends CI_Controller {
 			}
 			else
 			{
-
 				$this->load->view('registration');
 			}			
 		}
@@ -80,6 +100,57 @@ class User extends CI_Controller {
 			redirect('/');
 		}
 
+	}
+
+
+	public function login()
+	{
+		if($this->user['logged_in']!=true)
+		{
+			if ($_SERVER['REQUEST_METHOD'] === 'POST') 
+			{
+				if( $this->siteStatus['allow_login'] )
+				{
+					$user_name = $this->input->post('username', TRUE);
+					$password = $this->input->post('password');
+
+					$this->form_validation->set_rules('username', 'User Name', 'required');
+					$this->form_validation->set_rules('password', 'Password', 'required');
+					
+					if ($this->form_validation->run() == FALSE)
+					{
+						$this->load->view('login');
+					}
+					else
+					{
+						$user = allowLogin($user_name,$password);
+						if($user)
+						{
+							var_dump("login process"); die();
+						}
+						else
+						{
+							$this->session->set_flashdata('error', 'Invalid User name or Password!');
+							redirect('user/login');
+						}
+					}
+				}
+				else
+				{
+					$this->session->set_flashdata('info', $this->siteStatus['login_denny_msg']);
+					redirect('user/login');
+				}
+			}
+			else
+			{
+				$this->load->view('login');
+			}			
+		}
+		else
+		{
+			$this->session->set_flashdata('error', 'You are already loggedin!');
+			redirect('/');
+		}
 	}
 	
 }
