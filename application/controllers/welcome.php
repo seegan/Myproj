@@ -21,6 +21,11 @@ class Welcome extends CI_Controller {
 	{
 		parent::__construct();
 		$this->layout="Yes";
+
+$login = $this->session->userdata;
+var_dump($login);
+
+
 	}
 
 	public function index()

@@ -6,7 +6,15 @@
   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <style type="text/css">
-    	#center {
+
+    .navbar-fixed-top, .navbar-fixed-bottom
+    {
+      position: relative;
+    }
+
+
+    
+    #center {
         text-align: center;
     }
 
@@ -82,7 +90,7 @@
             <li><a href="#">Settings</a></li>
             <li><a href="#">Something else here</a></li>
             <li class="divider"></li>
-            <li><a href="#">Log Out</a></li>
+            <li><a href="<?php echo site_url('user/logout'); ?>">Log Out</a></li>
           </ul>
         </li>
 
@@ -92,7 +100,7 @@
       else
       {
     ?>
-        <li><a href="#">Login</a></li>
+        <li><a href="<?php echo site_url('user/login'); ?>">Login</a></li>
         <li><a href="<?php echo site_url('user/register'); ?>">Register</a></li>
 
     <?php
@@ -133,7 +141,8 @@
   <?php } if($this->session->flashdata('error')) { ?>
     <div class="alert alert-danger" role="alert"><?php echo $this->session->flashdata('error');  ?></div>
   <?php } ?>
-  <!-- End of info message -->  
+  <!-- End of info message -->
+
   <!-- Breadcrumb -->
   <div class="container-fluid" style="margin-bottom:10px;" >
     <ol class="breadcrumb">

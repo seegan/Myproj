@@ -28,6 +28,11 @@ class User extends CI_Controller {
 		$this->load->library('form_validation');
 		$this->load->helper('user');
 		$this->load->model('common_model');
+
+$login = $this->session->userdata;
+var_dump($login);
+
+
 	}
 
 	public function index()
@@ -123,10 +128,13 @@ class User extends CI_Controller {
 					}
 					else
 					{
-						$user = allowLogin($user_name,$password);
-						if($user)
+						$user_id = allowLogin($user_name,$password);
+						if($user_id)
 						{
-							var_dump("login process"); die();
+							setUserLoginSession($user_id, $user_name);
+
+							$this->session->set_flashdata('success', 'Loggedin Successfully!');
+							redirect('/');
 						}
 						else
 						{
@@ -153,6 +161,14 @@ class User extends CI_Controller {
 		}
 	}
 	
+
+	public function logout()
+	{
+		userLogout();
+
+		$this->session->set_flashdata('success', 'You are Loggedout!');
+		redirect('/');
+	}
 }
 
 /* End of file welcome.php */

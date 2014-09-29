@@ -30,8 +30,54 @@
 
 	function getCurrentUser($return='')
 	{
-		$data['user_name'] = 'Suji';
-		$data['logged_in'] = FALSE;
+		$session = getUserSession();
+		if($session)
+		{
+			return $session;
+		}
+		else
+		{
+			$data['logged_in'] = FALSE;
+			return $data;
+		}
+	}
 
-		return $data;
+	function setUserLoginSession($user_id='', $user_name='')
+	{
+		$CI =& get_instance();
+
+		$CI->session->unset_userdata(array(
+                                'logged_in',
+                                'rb_UserId',
+                                'user_name',
+                                'rb_roles'));
+
+		$CI->session->set_userdata(array(
+                                'logged_in' => TRUE,
+                                'rb_UserId' => $user_id,
+                                'user_name' => $user_name,
+                                'rb_roles' => 'user'));
+	}
+
+	function getUserSession()
+	{
+		$CI =& get_instance();
+
+		$login = $CI->session->userdata('logged_in');
+		if($login)
+		{
+			return $CI->session->userdata;
+		}
+		else
+		{
+			return false;
+		}
+
+	}
+
+	function userLogout()
+	{
+		$CI =& get_instance();
+
+		$CI->session->sess_destroy();
 	}
