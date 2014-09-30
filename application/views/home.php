@@ -159,7 +159,6 @@
 			
 			<div class="col-lg-5 col-md-5 col-sm-5">
 				
-
 				<?php $this->load->view('sidebar/register'); ?>
 
 			</div>

@@ -57,7 +57,7 @@
   <div class="navbar-collapse collapse navbar-inverse-collapse">
     <ul class="nav navbar-nav">
       <li class="active"><a href="#">Active</a></li>
-      <li><a href="#">Link</a></li>
+      <li><a href="<?php echo site_url('post/story'); ?>">Write Story</a></li>
       <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Dropdown <b class="caret"></b></a>
         <ul class="dropdown-menu">

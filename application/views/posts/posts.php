@@ -94,37 +94,9 @@
 	</div>
 	<div class="col-lg-4 col-md-4">
 		
-		<div class="panel panel-info">
-			<div class="panel-heading"><i class="fa fa-female fa-2x"> </i> Related posts</div>
-
-			<div style="margin:0 auto;width:90%;">
-					<ul style="background-color:#fff;list-style-type: none;margin: 0;padding: 10px;">
-					<li style="border-bottom: dashed 1px #B0E6DD;padding-bottom: 2px;">First post</li>
-					<li style="border-bottom: dashed 1px #B0E6DD;padding-bottom: 2px;">First post</li>
-					<li style="border-bottom: dashed 1px #B0E6DD;padding-bottom: 2px;">First post</li>
-					<li style="border-bottom: dashed 1px #B0E6DD;padding-bottom: 2px;">First post</li>
-					<li style="border-bottom: dashed 1px #B0E6DD;padding-bottom: 2px;">First post</li>
-					<li style="border-bottom: dashed 1px #B0E6DD;padding-bottom: 2px;">First post</li>
-					</ul>
-			</div>
-
-		</div>
-
+		<?php $this->load->view('sidebar/related_story'); ?>
+		<?php $this->load->view('sidebar/hot_story'); ?>
 		
-			<div class="panel-heading"><i class="fa fa-bomb fa-2x"> </i> Hot posts</div>
-				
-				<div style="margin:0 auto;width:90%;">
-					<ul style="background-color:#fff;list-style-type: none;margin: 0;padding: 10px;">
-					<li style="border-bottom: dashed 1px #E6B0B0;padding-bottom: 2px;">First post
-					<a class="btn btn-info btn-xs">Read More</a>
-					</li>
-					<li style="border-bottom: dashed 1px #E6B0B0;padding-bottom: 2px;">First post</li>
-					<li style="border-bottom: dashed 1px #E6B0B0;padding-bottom: 2px;">First post</li>
-					<li style="border-bottom: dashed 1px #E6B0B0;padding-bottom: 2px;">First post</li>
-					<li style="border-bottom: dashed 1px #E6B0B0;padding-bottom: 2px;">First post</li>
-					<li style="border-bottom: dashed 1px #E6B0B0;padding-bottom: 2px;">First post</li>
-					</ul>
-				</div>
 		
 		</div>
 
