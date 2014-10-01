@@ -33,8 +33,10 @@ var_dump($login);
 		/*$this->title = "seegan";
 		$this->layout="Yes";
 		$this->load->view('home');
-		this->title = "seegan";*/
-		$this->load->view('posts/posts');
+		this->title = "seegan";
+		*/
+		/*$this->load->view('posts/posts');*/
+		$this->load->view('posts/current_posts');
 	}
 }
 

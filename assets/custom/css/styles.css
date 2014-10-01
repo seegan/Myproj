@@ -1,0 +1,28 @@
+ul.custom-reviews
+{
+	list-style: none;
+	margin: 0px;
+}
+ul.custom-reviews li
+{
+	display:inline;
+	padding-right: 5px;
+}
+ul.custom-reviews li:first-child
+{
+	color:#509622;
+}
+ul.custom-reviews li:nth-child(2)
+{
+	color:#51A5BA;
+}
+ul.custom-reviews li:nth-child(3)
+{
+	color:#E04D1E;
+}
+.story-content
+{
+	padding:5px;
+	background-color:#FFF;
+	font-size: 15px;
+}

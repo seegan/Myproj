@@ -3,8 +3,11 @@
   <title>Ozylog{title}</title>
   <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="<?php echo base_url(); ?>assets/tinyEditor/style.css">
+  <link rel="stylesheet" href="<?php echo base_url(); ?>assets/custom/css/styles.css">
   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta charset="UTF-8">
   <style type="text/css">
 
     .navbar-fixed-top, .navbar-fixed-bottom
@@ -210,5 +213,27 @@
   <!-- End of Footer content --> 
   <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="<?php echo base_url(); ?>assets/tinyEditor/tinyeditor.js"></script>
+  <script type="text/javascript">
+new TINY.editor.edit('editor',{
+  id:'input',
+  cssclass:'te',
+  controlclass:'tecontrol',
+  rowclass:'teheader',
+  dividerclass:'tedivider',
+  controls:['bold','italic','underline','strikethrough','|','subscript','superscript','|',
+        'orderedlist','unorderedlist','|','outdent','indent','|','leftalign',
+        'centeralign','rightalign','blockjustify','|','unformat','|','undo','redo'],
+  footer:false,
+  fonts:['Verdana','Arial','Georgia','Trebuchet MS'],
+  xhtml:true,
+  cssfile:'style.css',
+  bodyid:'editor',
+  footerclass:'tefooter',
+  toggle:{text:'show source',activetext:'show wysiwyg',cssclass:'toggle'},
+  resize:{cssclass:'resize'}
+});
+</script>
+
 </body>
 </html>
