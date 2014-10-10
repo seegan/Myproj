@@ -1,6 +1,6 @@
-<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+`<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Welcome extends CI_Controller {
+class Website extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -20,7 +20,14 @@ class Welcome extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-		$this->layout="Yes";
+		$this->layout = NULL;
+
+		$this->user = getCurrentUser();
+		$this->siteStatus = siteStatus();
+
+		$this->load->library('form_validation');
+		$this->load->helper('user');
+		$this->load->model('common_model');
 
 $login = $this->session->userdata;
 var_dump($login);
@@ -28,17 +35,8 @@ var_dump($login);
 
 	}
 
-	public function index()
+	public function get()
 	{
-		/*$this->title = "seegan";
-		$this->layout="Yes";
-		$this->load->view('home');
-		this->title = "seegan";
-		*/
-		$this->load->view('posts/posts');
-		//$this->load->view('posts/current_posts');
+		$this->load->view('siteadmin/grab/geturl');
 	}
 }
-
-/* End of file welcome.php */
-/* Location: ./application/controllers/welcome.php */

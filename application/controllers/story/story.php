@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Welcome extends CI_Controller {
+class Story extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -22,23 +22,21 @@ class Welcome extends CI_Controller {
 		parent::__construct();
 		$this->layout="Yes";
 
+		$this->user = getCurrentUser();
+		$this->siteStatus = siteStatus();
+
+		$this->load->library('form_validation');
+		$this->load->helper('user');
+		$this->load->model('common_model');
+
 $login = $this->session->userdata;
 var_dump($login);
 
 
 	}
 
-	public function index()
-	{
-		/*$this->title = "seegan";
-		$this->layout="Yes";
-		$this->load->view('home');
-		this->title = "seegan";
-		*/
-		$this->load->view('posts/posts');
-		//$this->load->view('posts/current_posts');
+	public function single($id='')
+	{var_dump($id); die();
+		$this->load->view('posts/current_posts');
 	}
 }
-
-/* End of file welcome.php */
-/* Location: ./application/controllers/welcome.php */

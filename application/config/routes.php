@@ -55,5 +55,9 @@ $route['user/(:any)'] = "users/user/$1";
 $route['post'] = "stories/post";
 $route['post/(:any)'] = "stories/post/$1";
 
+//Single story
+$route['story/(:any)'] = "story/story/single/$1";
+
+
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */
