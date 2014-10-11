@@ -35,8 +35,8 @@ var_dump($login);
 		$this->load->view('home');
 		this->title = "seegan";
 		*/
-		$this->load->view('posts/posts');
-		//$this->load->view('posts/current_posts');
+		//$this->load->view('posts/posts');
+		$this->load->view('posts/current_posts');
 	}
 }
 
