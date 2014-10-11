@@ -45,18 +45,19 @@ $route['404_override'] = '';
 //URL Routing
 
 //For user controller folder
-
 $route['user'] = "users/user";
 $route['user/(:any)'] = "users/user/$1";
 
 
 //For user story post
-
 $route['post'] = "stories/post";
 $route['post/(:any)'] = "stories/post/$1";
 
 //Single story
 $route['story/(:any)'] = "story/story/single/$1";
+
+
+//Admin
 
 
 /* End of file routes.php */

@@ -22,8 +22,8 @@ class Welcome extends CI_Controller {
 		parent::__construct();
 		$this->layout="Yes";
 
-$login = $this->session->userdata;
-var_dump($login);
+		$login = $this->session->userdata;
+
 
 
 	}
@@ -35,8 +35,8 @@ var_dump($login);
 		$this->load->view('home');
 		this->title = "seegan";
 		*/
-		$this->load->view('posts/posts');
-		//$this->load->view('posts/current_posts');
+		//$this->load->view('posts/posts');
+		$this->load->view('posts/current_posts');
 	}
 }
 

@@ -26,17 +26,32 @@ class Website extends CI_Controller {
 		$this->siteStatus = siteStatus();
 
 		$this->load->library('form_validation');
-		$this->load->helper('user');
+		$this->load->helper(array('user','superadmin'));
 		$this->load->model('common_model');
 
-$login = $this->session->userdata;
-var_dump($login);
+		$login = $this->session->userdata;
+
 
 
 	}
 
 	public function get()
 	{
+
+		if(isset($_POST['websitelink']) AND $this->input->post('websitelink'))
+		{
+			$site = $this->input->post('websitelink');
+			$is_source = getSource($site);
+			if($is_source)
+			{
+				get_archive();
+			}
+			else
+			{
+				die('Source not avail..');
+			}
+
+		}
 		$this->load->view('siteadmin/grab/geturl');
 	}
 }

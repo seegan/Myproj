@@ -29,8 +29,8 @@ class Post extends CI_Controller {
 		$this->load->helper('user');
 		$this->load->model('common_model');
 
-$login = $this->session->userdata;
-var_dump($login);
+		$login = $this->session->userdata;
+
 
 
 	}
