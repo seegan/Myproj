@@ -35,8 +35,8 @@ class Welcome extends CI_Controller {
 		$this->load->view('home');
 		this->title = "seegan";
 		*/
-		//$this->load->view('posts/posts');
-		$this->load->view('posts/current_posts');
+		$this->load->view('posts/category_page');
+		//$this->load->view('posts/current_posts');
 	}
 }
 
