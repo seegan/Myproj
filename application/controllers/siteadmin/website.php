@@ -1,4 +1,4 @@
-`<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class Website extends CI_Controller {
 
@@ -35,23 +35,46 @@ class Website extends CI_Controller {
 
 	}
 
-	public function get()
+	public function get($str='')
 	{
-
-		if(isset($_POST['websitelink']) AND $this->input->post('websitelink'))
+		if ($str=='links') 
 		{
-			$site = $this->input->post('websitelink');
-			$is_source = getSource($site);
-			if($is_source)
+			if(isset($_POST['websitelink']) AND $this->input->post('websitelink'))
 			{
-				get_archive();
-			}
-			else
-			{
-				die('Source not avail..');
-			}
+				$site_id = store_site_url($_POST['websitelink']);
 
+				$site = $this->input->post('websitelink');
+				$is_source = getSource($site);
+				if($is_source)
+				{
+					$archive_month_urls = get_archive('full');
+
+	/*var_dump($archive_month_urls);*/
+
+					foreach ($archive_month_urls as $value) {
+						getSource($value);
+						$status = get_archive('month',$site_id);
+						echo $status['status'].'<br>';
+					}
+					
+				}
+				else
+				{
+					die('Source not avail..');
+				}
+
+			}
+			$this->load->view('siteadmin/grab/geturl');
 		}
-		$this->load->view('siteadmin/grab/geturl');
+		if($str=='story')
+		{
+			if(isset($_POST['range_val']))
+			{
+				$site_url = $this->input->post('site_url');
+				
+				/*var_dump($site_url); die();*/
+			}
+			$this->load->view('siteadmin/grab/site_list.php');
+		}
 	}
 }

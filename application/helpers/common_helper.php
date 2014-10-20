@@ -81,3 +81,12 @@
 
 		$CI->session->sess_destroy();
 	}
+
+
+	function crawl_site_list($cond)
+	{
+  		$CI =& get_instance();
+
+	    $sites = $CI->common_model->selectData($table="copy_sites",$selectData=array('id','url'),$cond);
+	    return $sites->result();
+	}
