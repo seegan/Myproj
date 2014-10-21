@@ -180,3 +180,60 @@
         $Data = fread($handle,41150000); 
         return $Data;
     }
+
+
+    function get_story_content($file='')
+    {
+    	if($file=='')
+    	{
+    		$file = read_file($File='content.txt');
+    	}
+    	
+		$dom = new DOMDocument();
+		libxml_use_internal_errors(true);
+		$dom->loadHTML($file);
+
+		$xpath = new DOMXPath($dom);
+
+		$div = $xpath->query('//div[@class="post-body entry-content"]');
+		$data['is_story'] = $div->length;
+
+		$div = $div->item(0);
+
+
+		$data['story'] = $dom->saveXML($div);
+		
+		return $data;
+		
+    }
+
+    function get_title_content($file='')
+    {
+    	if($file=='')
+    	{
+    		$file = read_file($File='content.txt');
+    	}
+		$dom = new DOMDocument();
+		libxml_use_internal_errors(true);
+		$dom->loadHTML($file);
+
+		$xpath = new DOMXPath($dom);
+
+		$div = $xpath->query('//h3[@class="post-title entry-title"]');
+		$data['is_title'] = $div->length;
+
+		$div = $div->item(0);
+
+		$str = $dom->saveXML($div);
+
+		
+		$data['title'] = strip_tags($str);
+
+		return $data;
+
+    }
+
+    function story_from_blog_to_db($data, )
+    {
+
+    }

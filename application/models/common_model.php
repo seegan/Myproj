@@ -47,11 +47,16 @@ class common_model extends CI_Model {
         $this->db->update($table, $updateData); 
 	}//End of updateData Function
 
-	function selectData($table="",$selectData=array(),$condition=array(),$dist="")
+	function selectData($table="",$selectData=array(),$condition=array(),$limit="")
 	{
 		if(count($condition)>0)	{	
 	 		$this->db->where($condition);
 	 	}
+	 	if(is_numeric($limit))
+	 	{
+	 		$this->db->limit($limit);
+	 	}
+
 		$this->db->from($table);
 	 	$this->db->select($selectData);
 		$result = $this->db->get();
@@ -62,22 +67,6 @@ class common_model extends CI_Model {
 
 	}
 
-	function select_like($table="",$selectData=array(),$title)
-	{
-		
-			$this->db->order_by('title', "RANDOM"); 
-	 		$this->db->like('title', $title, 'both'); 
-
-		$this->db->from($table);
-		$this->db->limit('5');
-	 	$this->db->select($selectData);
-		$result = $this->db->get();
-		if($result->num_rows()>0)
-			return $result;
-		else 
-			return false;	
-
-	}
 
 	function insertDataAll($table,$insertData)
 	{

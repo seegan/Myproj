@@ -90,3 +90,25 @@
 	    $sites = $CI->common_model->selectData($table="copy_sites",$selectData=array('id','url'),$cond);
 	    return $sites->result();
 	}
+
+
+	function get_crawl_story_url($id,$limit)
+	{
+		$CI =& get_instance();
+		$cond = array('site_id'=>$id,'can_crawl'=>1,'wes_crawled'=>0,'crawl_error'=>0,);
+	    $urls = $CI->common_model->selectData($table="copy_sites_story_url",$selectData=array('id','url'),$cond, $limit);
+	    return $urls->result();
+	}
+
+	function get_story_from_url($id, $url, $site_id)
+	{
+		getSource($url);
+		$data['title'] = get_title_content();
+		$data['story'] = get_story_content();
+		return $data;
+	}
+
+	function strip_tags_from_story($story='')
+	{
+		return strip_tags($story, '<p><a><br><img><table><tr><td><th><i><b><u><pre>');
+	}

@@ -70,8 +70,25 @@ class Website extends CI_Controller {
 		{
 			if(isset($_POST['range_val']))
 			{
-				$site_url = $this->input->post('site_url');
+				$site_id = $this->input->post('site_url');
+				$range = $this->input->post('range_val');
+				if(!is_numeric($range))
+				{
+					$range = 'full';
+				}
+
+				$url_list = get_crawl_story_url($site_id, $range);
+				foreach ($url_list as $value) {
+					$data = get_story_from_url($value->id, $value->url, $site_id);
+					
+					story_from_blog_to_db($data, $value->id, $site_id);
+
+					//$story = strip_tags_from_story($data['story']);
+
+					//echo $story;  die();
+				}
 				
+
 				/*var_dump($site_url); die();*/
 			}
 			$this->load->view('siteadmin/grab/site_list.php');
