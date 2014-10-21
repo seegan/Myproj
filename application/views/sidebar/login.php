@@ -1,4 +1,30 @@
-<div class="well">
+
+<form action="<?php echo site_url('/user/login'); ?>" method="POST" class="user-form">
+
+  <ul>
+    <li></li>
+    <li>Username</li>
+    <li><input type="text" name="username" id="username" class="field"></li>
+    <li style="color:rgba(209, 52, 52, 1)"><?php echo form_error('username'); ?></li>
+    <li>Password</li>
+    <li><input type="password" name="password" id="password" class="field"></li>
+    <li style="color:rgba(209, 52, 52, 1)"><?php echo form_error('password'); ?></li>
+    <li><input type="submit" value="Login"></li>
+    <li>Not an account Register <a href="#" style="color:rgba(43, 84, 228, 1)">here</a></li>
+  </ul>
+  
+</form>
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="well">
 
   <form class="form-horizontal" action="<?php echo site_url('/user/login'); ?>" method="POST">
     <fieldset>
@@ -29,4 +55,4 @@
       </div>
     </fieldset>
   </form>
-</div>
+</div> -->
