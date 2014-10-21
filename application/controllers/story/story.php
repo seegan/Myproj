@@ -36,7 +36,7 @@ class Story extends CI_Controller {
 	}
 
 	public function single($id='')
-	{var_dump($id); die();
+	{
 		$this->load->view('posts/current_posts');
 	}
 }

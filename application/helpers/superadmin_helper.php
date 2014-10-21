@@ -233,7 +233,30 @@
 
     }
 
-    function story_from_blog_to_db($data, )
+    function story_from_blog_to_db($data, $copy_id, $site_id)
     {
+    	$CI =& get_instance();
 
+    	if($data['story']['is_story']==1)
+    	{
+    		if($data['title']['is_title']!=1)
+    		{
+    			$title = 'No Title';
+    		}
+    		else
+    		{
+    			$title = $data['title']['title'];
+    		}
+    		$insData=array('title'=>$title,'story'=>$data['story']['story'],'title_slug'=>'0','author'=>0,'is_active'=>1);
+
+	    	$story_id = $CI->common_model->insertDataAll($table="ring_stories",$insData);
+
+	    	
+	    	var_dump($story_id); die();
+	    
+    	}
+    	else
+    	{
+
+    	}
     }
