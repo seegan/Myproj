@@ -1,10 +1,12 @@
 <html>
 <head>
-  <title>Ozylog{title}</title>
+  <title>Ring The Bell{title}</title>
   <!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'> -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/custom/css/styles.css">
   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="icon" href="<?php echo base_url(); ?>assets/images/bell.png" type="image/png">
+  <link rel="shortcut icon" href="<?php echo base_url(); ?>assets/images/bell.png" type="image/png">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <meta charset="UTF-8">
   <style type="text/css">
@@ -35,7 +37,7 @@
     }
   </style>
 </head>
-<body style="color: #413F3F;background-color: #EFF4F5;margin:auto;">
+<body style="color: #413F3F;background-color: #EFF4F5;margin:auto;font-family:Ubuntu">
 
 <div class="menu_bar">
     <ul>

@@ -146,7 +146,7 @@ margin: 0px;
 
 .header-bg-image
 {
-  background-image: url('http://localhost:8080/myproj/Myproj/assets/images/love.jpg');
+  background-image: url('http://localhost/myproj/Myproj/assets/images/love.jpg');
   margin-top: 48px;
   font-size: 12px;
   background-position: 1;
@@ -169,7 +169,7 @@ margin: 0px;
 
 .mobile-header-bg-image
 {
-  background-image: url('http://localhost:8080/myproj/Myproj/assets/images/love.jpg'); 
+  background-image: url('http://localhost/myproj/Myproj/assets/images/love.jpg'); 
   margin-top: 40px;
   font-size: 12px;
   background-position: 1;
