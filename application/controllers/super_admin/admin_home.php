@@ -19,22 +19,16 @@ class Admin_home extends MY_Controller {
 	public function __construct()
 	{
 	   parent::__construct();
+	   getCurrentAccountStatus($role_id = array(1))
 	}
 	
 	public function index()
 	{
-		if($this->session->userdata('logged_in'))
-  		{
-			$session_data = $this->session->userdata('logged_in');
-	     	$data['email'] = $session_data['email'];
+
 			$data['title']='Dashboard';
 			$data['content']='super_admin/admin_home';
 			$this->load->view($this->layout_role,$data);
-		}
-		else
-	   {
-	    	redirect('super_admin/admin_login', 'refresh');
-	   }
+		
 	}
 	public function logout()
 	{

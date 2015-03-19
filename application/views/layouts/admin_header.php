@@ -198,7 +198,15 @@
                 <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
                     <img src="<?php echo base_url('assets/role_assets/images/g1.jpg');?>" alt="" class="img-circle img30_30">
                     <span class="hidden-xs">
-                        <span><?php echo isset($email) ? "$email":NULL; ?></span>
+                        <span>
+                            <?php
+                            if(getCurrentUserSession())
+                            {
+                                $user_session = getCurrentUserSession();
+                                echo $user_session['email'];
+                            }
+                            ?>
+                        </span>
                     </span>
                 </a>
                 <ul class="dropdown-menu with-arrow pull-right">
