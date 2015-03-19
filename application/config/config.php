@@ -14,7 +14,7 @@
 | path to your installation.
 |
 */
-if(dirname(__FILE__) == "C:\xampp\htdocs\Myproj\application\config")
+if(dirname(__FILE__) == 'C:\xampp\htdocs\Myproj\application\config')
 {
 	$config['base_url']	= 'http://localhost/Myproj';
 }

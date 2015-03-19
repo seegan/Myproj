@@ -35,9 +35,10 @@ function getCurrentAccountStatus($role_id = array())
 	//Check Current user account activated or not
 	if(!isUserAccountActive($user_id))
 	{
-		var_dump("Current user account not activated!");
-		die();
+		$id = 3;
+		redirect('status/info/'.$id);  
 	}
+	
 
 }
 
