@@ -1,0 +1,449 @@
+@import url(http://fonts.googleapis.com/css?family=Shadows+Into+Light);
+.header-logo-container{
+  font-size: 18px;
+  color: #555;
+}
+.header-menu{
+  padding-top:8%;
+}
+.header-menu ul {
+  list-style: none;
+  padding:0px;
+  float: right;
+}
+.header-menu ul li{
+  display: inline;
+  float:left;
+   padding-right: 5px;
+}
+
+header
+{
+  width:100%;
+  border-top: 1px solid #ddd;
+  -webkit-box-shadow: inset 0 0 10px #D5D4D4;
+  box-shadow: inset 0 0 10px #D5D4D4;
+  background-color: #ECECEC;
+}
+header nav
+{
+  width: 84%;
+  margin: 0 auto;
+  z-index: 10000;
+}
+header nav ul
+{
+  overflow: hidden;
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+}
+header nav ul li
+{
+  float: left;
+}
+header nav ul li a
+{
+  padding-right:10px;
+  padding-top: 10px;
+  padding-left: 10px;
+  color: #555555;
+  display: block;
+  font: normal 16px/2.3em 'Open Sans', arial, sans-serif;
+  font-variant: small-caps;
+  -webkit-transition: all 0.7s ease;
+  transition: all 0.7s ease;
+}
+header nav ul li span
+{
+  margin-right: 10px;
+}
+header nav ul li a:hover
+{
+  text-decoration: none;
+  color: #FF9F04;
+
+}
+.fixed {
+    position:fixed;
+    top:0;
+    background-color: rgba(221, 221, 221, 0.96);
+    z-index: 1000000;
+}
+.menu-bar
+{
+  display: none;
+}
+/* End of Navigation */
+/* Mobile Navigation */
+@media screen and (max-width: 991px){
+  .header-container{
+  margin-top:45px;
+}
+  .ws_gestures
+  {
+    margin-top: 25%;
+  }
+.main-container{
+  background-color: #F4F4F4;
+  border-top: 5px dashed #14c35d;
+  margin-top: 42px;
+}
+.nbrand{
+  display: none;
+}
+
+header
+{
+  width:80%;
+  border-top: 1px solid #ddd;
+  background-color: #ddd;
+  height: 100%;
+  position: fixed;
+  left: -100%;
+  top: 51px;
+  z-index: 999999999;
+  box-shadow: 3px 3px 10px #808080;
+}
+header nav
+{
+  width: 100%;
+  height: 100%;
+  z-index: 10000;
+}
+header nav ul
+{
+  overflow-y:auto;
+  list-style: none;
+  max-height: 81%;
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+}
+header nav ul li
+{
+  float: none;
+  display: block;
+  border-bottom: thin solid #C0BEBC;
+}
+
+.menu-bar
+  {
+    display: block;
+    width: 100%;
+    background: #1A95E0;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 999999999;
+    box-shadow: 0px 2px 10px #808080;
+  }
+  .menu-bar ul
+  {
+    list-style: none;
+    overflow: hidden;
+    width: 100%;
+    margin-top:6px;
+  padding: 0px;
+  }
+  .menu-bar ul li{
+    float: left;
+  }
+  .menu-bar ul li:nth-child(1)
+  {
+    width: 90%;
+    color:#fff;
+  }
+  .menu-bar ul li a:nth-child(1)
+  {
+    width: 90%
+  }
+  .menu-bar ul li:nth-child(2)
+  {
+    width: 10%;
+  }
+ .menu-bar ul li a{
+  padding: 5px;
+  margin: 5px;
+  color: #fff;
+  font-size: 22px;
+  width: 100%;
+  }
+  .menu-bar ul li a:hover{
+    text-decoration: none;
+  }
+  .search-form-control input[type="text"]{
+    margin-top: 0px!important;
+    width: 100%!important;
+  }
+  .menu-btn{
+    float: right;
+  }
+}
+.main-container{
+  background-image: url(http://techyline.com/pearl1/assets/main_assets/images/room.jpg);
+  background-repeat: no-repeat;
+}
+.content-info-container{
+  margin-top:60px;
+  margin-bottom:20px;
+}
+.content-info-container .content-info{
+  height: 250px;
+  background-color:#F2F2F2;
+  text-align: center;
+  padding: 20px;
+  border: 1px solid #E2E2E2;
+  margin-bottom: 20px;
+  position:relative;
+}
+.content-info-container .content-info p.title{
+  padding:20px 0px;
+  font-size: 20px;
+}
+.content-info-container .content-info a{
+  color: #555;
+  padding-bottom: 20px;
+}
+.content-info-container .content-info a:hover{
+  color: #08B09D;
+  text-decoration: none;
+}
+.content-info-container .content-info p.info{
+  color: #08B09D;
+  font: normal 14px 'Open Sans', arial, sans-serif;
+}
+.icon-box{
+  position: absolute;
+  top: -25px;
+  left:44%;
+  width:50px;
+  height:50px;
+  border-radius: 50px;
+  background-color: #5CB85C;
+  text-align: center;
+  color: #fff;
+  padding-top: 15px;
+}
+.register-container{
+  margin:25px 17px;
+  border-top: 4px solid #18B0DD;
+  box-shadow: 0 0 5px #ADAFB0;
+  padding:30px 20px;
+  background-color: #FCFCFC;
+  text-align: center;
+  font-family: font-family: 'Open Sans Condensed', sans-serif;
+}
+
+.input-group{
+  position: relative;
+  display: table;
+  border-collapse: separate;
+  margin-bottom: 20px;
+}
+.input-group-addon:first-child{
+  border-right: 0;
+  border-radius: 0px!important;
+  background-color: #fff!important;
+  color: #BCBCBD;
+}
+.input-custom{
+  border-radius: 0px!important;
+}
+.btn-register{
+  border-radius: 0px!important;
+  margin-bottom: 20px;
+  background-color: #18B0DD!important;
+}
+.register-container:after{
+  content: " ";
+  position: absolute;
+  top: 0px;
+  right: 13px;
+  width: 0;
+  height: 0;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-top: 18px solid #18B0DD;
+}
+.login-container{
+  margin:25px 17px;
+  border-top: 4px solid #5CB85C;
+  box-shadow: 0 0 5px #ADAFB0;
+  padding:30px 20px;
+  background-color: #FCFCFC;
+  text-align: center;
+}
+.login-container h3{
+  font-family: 'Shadows Into Light', cursive;
+  margin-top: 0px;
+  margin-bottom: 35px;
+}
+.register-container h3{
+  font-family: 'Shadows Into Light', cursive;
+}
+.login-container:after{
+  content: " ";
+  position: absolute;
+  top: 0px;
+  right: 13px;
+  width: 0;
+  height: 0;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-top: 18px solid #5CB85C;
+}
+.btn-login{
+  border-radius: 0px!important;
+  margin-bottom: 20px;
+  background-color: #5CB85C!important;
+  color: #fff!important;
+}
+.rp-step-cont
+{
+  margin: 0px;
+  padding: 0px;
+}
+.rp-step-cont ul{
+  padding: 10px 0px 0px 25px;
+  position: relative;
+  list-style: none;
+}
+.rp-step-cont ul:before
+{
+  content: '';
+  border-left: 1px solid #e5e5e5;
+  width: 5%;
+  height: 100%;
+  position: absolute;
+  left: 0px;
+  top: 0;
+}
+.rp-step-cont ul li{
+  border: 1px solid #eaeaea;
+  background-color: #fff;
+  padding: 12px 10px;
+  width: 100%;
+  margin: 0px 0px 8px 0px;
+  border-radius: 4px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  box-shadow: 0px 0px 2px 1px #f8f8f8;
+  position: relative;
+}
+.rp-step-cont ul li:before
+{
+  content: '';
+  background: url(http://techyline.com/pearl1/assets/main_assets/custom/images/depth1.png);
+  background-repeat: no-repeat;
+  width: 22px;
+  height: 19px;
+  position: absolute;
+  top: 12px;
+  left: -30px;
+}
+.rp-step-num
+{
+  width: 22px;
+  height: 22px;
+  float: left;
+  color: #fff;
+  text-align: center;
+  padding: 2px 0px 0px 0px;
+  border-radius: 150px;
+  -moz-border-radius: 150px;
+  -webkit-border-radius: 150px;
+  margin: 0px 11px 0px 0px;
+  background-color: #18B0DD;
+}
+.rp-step-title h2
+{
+  font-size: 18px;
+  color: #18B0DD;
+  font-variant: small-caps;
+}
+.radio{
+  text-align: left!important;
+}
+.individual-block{
+  display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+footer
+{
+  background-color: #ECECEC;
+  padding: 5%;
+  -moz-box-shadow:    inset 0 0 10px #D5D4D4;
+   -webkit-box-shadow: inset 0 0 10px #D5D4D4;
+   box-shadow:         inset 0 0 10px #D5D4D4;
+}
+.footer-logo{
+  font-size: 28px;
+  color: #555;
+  padding-bottom:5px; 
+}
+.footer-title{
+  color: #E23704;
+  font-size: 16px;
+}
+.footer-content{
+  font-size: 12px;
+  color: #848473;
+}
+.footer-right-title p{
+  font-size: 16px;
+  color:#077E70;
+}
+.footer-right-content p{
+  font-size: 14px;
+  color:#848473;
+}
+.footer-social-icon ul{
+  list-style: none;
+  padding: 0px;
+}
+.footer-social-icon ul li{
+  float: left;
+  display: inline;
+}
+.footer-social-icon ul li a{
+  padding: 5px;
+  text-decoration: none;
+}
