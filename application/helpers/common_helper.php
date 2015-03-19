@@ -86,3 +86,17 @@ function isUserAccountActive($user_id = '')
 	return $data;
 }
 
+
+//Get Current User
+function getCurrentUserSession()
+{
+	$CI = & get_instance();
+	if($CI->session->userdata('user_logged_in'))
+    {
+        return $CI->session->userdata('user_logged_in');
+    }
+    else
+    {
+    	return false;
+    }
+}

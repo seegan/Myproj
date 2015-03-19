@@ -200,8 +200,7 @@
                     <span class="hidden-xs">
                         <span>
                              <?php
-                             var_dump("hii");
-                            
+                                                       
                             if(getCurrentUserSession())
                             {
                                 $user_session = getCurrentUserSession();

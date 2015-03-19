@@ -19,7 +19,8 @@ class Admin_home extends MY_Controller {
 	public function __construct()
 	{
 	   parent::__construct();
-	   getCurrentAccountStatus($role_id = array(1))
+	   $this->load->model(array('admin_model','user_model'));
+	   getCurrentAccountStatus($role_id = array(1));
 	}
 	
 	public function index()
