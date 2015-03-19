@@ -18,17 +18,12 @@ class Clientlist extends MY_Controller {
 	 */
 	public function __construct()
 	{
-<<<<<<< HEAD
 		parent::__construct();
 		$this->load->model(array('admin_model','user_model'));
 		getCurrentAccountStatus($role_id = array(1));
 	}
 
-=======
-	   parent::__construct();
-	}
-	
->>>>>>> b95e56c24c038d2a44b1a7ce93c86e319a336ccf
+
 	public function index()
 	{
 		$session_data = $this->session->userdata('logged_in');
