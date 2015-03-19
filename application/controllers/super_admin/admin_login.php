@@ -19,7 +19,7 @@ class Admin_login extends MY_Controller {
 	public function __construct()
 	 {
 	   parent::__construct();
-	   $this->load->model('admin','',TRUE);
+	   $this->load->model('admin_model','',TRUE);
 	 }
 	public function index()
 	{
@@ -48,18 +48,17 @@ class Admin_login extends MY_Controller {
 	{
 		$email = $this->input->post('admin_email');
 		$password = $this->input->post('admin_pass');
-		$result = $this->admin->login($email, $password);
+		$result = $this->admin_model->login($email, $password);
+
 		if($result)
 		{
-			$sess_array = array();
-			foreach($result as $row)
-			{
-				$sess_array = array(
-				'user_id' => $row->user_id,
-				'email' => $row->email
-				);
-				$this->session->set_userdata('logged_in', $sess_array);
-			}
+			$sess_array = array(
+			'user_id' 		=> $result->user_id,
+			'email' 		=> $result->email,
+			'role_id' 		=> $result->role_id,
+			'account_type' 	=> $result->acc_id
+			);
+			$this->session->set_userdata('user_logged_in', $sess_array);
 			return TRUE;
 		}
 		else

@@ -16,6 +16,13 @@ class Clientlist extends MY_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see http://codeigniter.com/user_guide/general/urls.html
 	 */
+	public function __construct()
+	{
+		parent::__construct();
+		$this->load->model(array('admin_model','user_model'));
+		getCurrentAccountStatus($role_id = array(1));
+	}
+
 	public function index()
 	{
 		$session_data = $this->session->userdata('logged_in');

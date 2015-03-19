@@ -200,7 +200,7 @@ class user extends MY_Controller {
 				'role_id' 		=> $row->role_id,
 				'account_type' 	=> $row->acc_id
 				);
-				$this->session->set_userdata('client_logged_in', $sess_array);
+				$this->session->set_userdata('user_logged_in', $sess_array);
 			}
 			return TRUE;
 		}

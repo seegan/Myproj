@@ -14,7 +14,7 @@
 function getCurrentAccountStatus($role_id = array())
 {
 	$CI = & get_instance();
-	$current_user = $CI->session->userdata('client_logged_in');
+	$current_user = $CI->session->userdata('user_logged_in');
 
 	//Check Is there any logged in user (if user not loggedin go to message page)
 	if(!$current_user)	{
@@ -41,9 +41,19 @@ function getCurrentAccountStatus($role_id = array())
 
 }
 
-function getAllClientList()
+function getAllClients()
 {
+	$CI = & get_instance();
+	$cond = array('role_id'=>2, 'is_active'=>1);
+	$sel = array('user_id','email','acc_id','acc_active');
+	$data = $CI->user_model->selectData($table="pl_user",$sel,$cond);
 
+	$result = false;
+	if($data)
+	{
+		$result = $data->result();
+	}
+	return $result;
 }
 
 

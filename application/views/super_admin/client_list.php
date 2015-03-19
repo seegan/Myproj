@@ -1,3 +1,7 @@
+<?php
+ $client_list = getAllClients();
+?>
+
 <div class="container-fluid" style="margin-top:20px;">
 	<div class="row">
 		<div class="col-lg-4 col-md-4">
@@ -43,26 +47,52 @@
 				<tr>
 					<th>#</th>
 					<th>check</th>
-					<th>name</th>
 					<th>Email</th>
-					<th>Action</th>
+					<th class="text-center">Action</th>
 				</tr>
 			</thead>
 			<tbody>
-			<tr>
-				<td>1</td>
-				<td><input type="checkbox" name="clist1"></td>
-				<td>Amery Lee</td>
-				<td>amy@gmail.com</td>
-				<td><a href="" class="btn btn-info"><i class="fa fa-check-circle"></i>Approve</a></td>
-			</tr>
-			<tr>
-				<td>2</td>
-				<td><input type="checkbox" name="clist1"></td>
-				<td>Amery Lee</td>
-				<td>lee@gmail.com</td>
-				<td><a href="" class="btn btn-info"><i class="fa fa-check-circle"></i>Approve</a></td>
-			</tr>
+			<?php 
+				if($client_list)
+				{
+					foreach ($client_list as $value) 
+					{
+			?>
+						<tr>
+							<td><?php echo $value->user_id; ?></td>
+							<td><input type="checkbox" name="clist1"></td>
+							<td><?php echo $value->email; ?></td>
+							<td class="text-center">
+							<?php
+								if($value->acc_active == 0)
+								{
+									echo '<a href="" class="btn btn-info"><i class="fa fa-check-circle"></i>Approve</a>';
+								}
+								if($value->acc_active == 1)
+								{
+									echo '<a href="" class="btn btn-warning"><i class="fa fa-close"></i>Dis Approve</a>';
+								}
+							?>
+								<a href="" class="btn btn-danger"><i class="fa fa-trash-o"></i>Remove</a>
+							</td>
+						</tr>
+			<?php
+			 		}
+				}
+				else
+				{
+			?>
+				<tr>
+					<td>1</td>
+					<td><input type="checkbox" name="clist1"></td>
+					<td>Amery Lee</td>
+					<td>amy@gmail.com</td>
+					<td><a href="" class="btn btn-info"><i class="fa fa-check-circle"></i>Approve</a></td>
+				</tr>
+			<?php
+				}
+			?>
+				
 			</tbody>
 		</table>
 	</div>

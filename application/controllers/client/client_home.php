@@ -25,9 +25,9 @@ class Client_home extends MY_Controller {
 
 	public function index()
 	{
-		if($this->session->userdata('client_logged_in'))
+		if($this->session->userdata('user_logged_in'))
   		{
-			$session_data = $this->session->userdata('client_logged_in');
+			$session_data = $this->session->userdata('user_logged_in');
 	     	$data['email'] = $session_data['email'];
 			$data['title']='Online Payment';
 			$data['content']='client/client_home';
@@ -40,7 +40,7 @@ class Client_home extends MY_Controller {
 	}
 	public function logout()
 	{
-		$this->session->unset_userdata('client_logged_in');
+		$this->session->unset_userdata('user_logged_in');
 		redirect('client/user/login');
 	}
 }
