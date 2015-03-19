@@ -6,7 +6,7 @@
 		<div class="col-lg-4 col-md-4 register-container">
 			<h3>Register Here</h3>
 			<hr>
-			<form method="post" action="<?php echo base_url();?>client/user/register_check">
+			<form method="post" action="<?php echo base_url();?>client/user/post_register">
 				<div class="radio">
 	                <label>
 	                  <input type="radio" name="ClientType" id="ClientType" value="0" checked>

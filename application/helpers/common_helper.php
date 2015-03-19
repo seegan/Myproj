@@ -10,13 +10,67 @@
  * @param	string
  * @return	string
  */
+
+function getCurrentAccountStatus($role_id = array())
+{
+	$CI = & get_instance();
+	$current_user = $CI->session->userdata('client_logged_in');
+
+	//Check Is there any logged in user (if user not loggedin go to message page)
+	if(!$current_user)	{
+		var_dump("user not loggedin!"); 
+		die();
+	}
+
+	$user_role = $current_user['role_id'];
+	$user_id = $current_user['user_id'];
+
+
+	//Check Current user role can access the page or not
+	if ( !in_array($user_role, $role_id) )	{
+	    var_dump("Current user dont have access to process this page!"); 
+	    die();
+	}
+
+	//Check Current user account activated or not
+	if(!isUserAccountActive($user_id))
+	{
+		var_dump("Current user account not activated!");
+		die();
+	}
+
+}
+
 function getAllClientList()
 {
-	$CI =& get_instance();
-	$CI->load->model('user_model');
-	$condition=array(
-		'acc_id'
-		)
-	$user_id = $CI->user_model->selectData($table="pl_user",'',);
+
 }
-	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Getting status
+
+function isUserAccountActive($user_id = '')
+{
+	$CI = & get_instance();
+
+	$data = false;
+	$res = $CI->user_model->selectData( $table="pl_user",$sel = array('user_id'), $con = array('user_id' => $user_id, 'acc_active' => 1 ) );
+	if($res)
+	{
+		$data = true;
+	}
+
+	return $data;
+}

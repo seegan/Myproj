@@ -16,6 +16,13 @@ class Client_home extends MY_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see http://codeigniter.com/user_guide/general/urls.html
 	 */
+	public function __construct()
+	{
+		parent::__construct();
+		$this->load->model('user_model');
+		getCurrentAccountStatus($role_id = array(1,2));
+	}
+
 	public function index()
 	{
 		if($this->session->userdata('client_logged_in'))
@@ -27,13 +34,13 @@ class Client_home extends MY_Controller {
 			$this->load->view($this->layout_client,$data);
 		}
 		else
-	   {
-	    	redirect('client/user/login', 'refresh');
-	   }
+	   	{
+	    	redirect('client/user/login');
+	   	}
 	}
 	public function logout()
 	{
 		$this->session->unset_userdata('client_logged_in');
-		redirect('client/user/login', 'refresh');
+		redirect('client/user/login');
 	}
 }

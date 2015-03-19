@@ -35,7 +35,7 @@ Class user_model extends CI_Model
 
     function login($email, $password)
 	{
-		$this ->db-> select('user_id, email, password');
+		$this ->db-> select('user_id, email, password, role_id, acc_id');
 		$this ->db-> from('pl_user');
 		$this ->db-> where('email', $email);
 		$this ->db-> where('password',$password);

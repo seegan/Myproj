@@ -13,7 +13,6 @@
 	
 	function registerUserData($user_data)
 	{
-
 		$CI =& get_instance();
 		$CI->load->model('user_model');
 		$user_id = $CI->user_model->insertData($table="pl_user",$user_data);

@@ -2,7 +2,7 @@
 	<div class="row">
 		<div class="col-lg-9 col-md-9 col-sm-9 col-xs-6">
 			<div class="header-logo-container">
-				<img src="<?php echo base_url();?>/assets/main_assets/images/logo.png">
+				<img src="<?php echo base_url();?>assets/main_assets/images/logo.PNG">
 			</div>
 		</div>
 		<div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">

@@ -17,10 +17,11 @@ class user extends MY_Controller {
 	 * @see http://codeigniter.com/user_guide/general/urls.html
 	 */
 	public function __construct()
-	 {
-	   parent::__construct();
-	   $this->load->model('user_model');
-	 }
+	{
+		parent::__construct();
+		$this->load->model('user_model');
+	}
+	
 	public function index()
 	{
 		$data['title']='Online Payment';
@@ -41,9 +42,9 @@ class user extends MY_Controller {
 		$data['content']='client/user_login';
 		$this->load->view($this->layout,$data);
 	}
-	public function register_check()
+	public function post_register()
 	{
-		$acc_type=$this->input->post('ClientType');
+		$acc_type	=	$this->input->post('ClientType');
 		if($acc_type==0)
 		{
 			$this->load->library('form_validation');
@@ -70,9 +71,10 @@ class user extends MY_Controller {
 					'password'  => $c_pass,
 					'role_id' => 2,
 					'acc_id'  =>$acc_type,
-					'is_active' => 1
+					'acc_active' => 0,
+					'is_active' => 1,
 					);
-				$user_id=registerUserData($company_data);
+				$user_id = registerUserData($company_data);
 				$meta_cname=array(
 					'user_id' => $user_id,
 					'meta_key' => 'company_name',
@@ -83,7 +85,7 @@ class user extends MY_Controller {
 					'meta_value' => $c_regnum);
 				setUserMeta($meta_cname);
 				setUserMeta($meta_cregnum);
-				redirect('client/user/login', 'refresh');
+				redirect('client/user/login');
 			}
 		}
 		else
@@ -111,6 +113,7 @@ class user extends MY_Controller {
 					'password'  => $u_pass,
 					'role_id' => 2,
 					'acc_id'  =>$acc_type,
+					'acc_active' => 0,
 					'is_active' => 1
 					);
 				$user_id=registerUserData($user_data);
@@ -124,7 +127,7 @@ class user extends MY_Controller {
 					'meta_value' => $u_lname);
 				setUserMeta($meta_fname);
 				setUserMeta($meta_lname);
-				redirect('client/user/login', 'refresh');
+				redirect('client/user/login');
 			}
 		}
 	}
@@ -167,6 +170,7 @@ class user extends MY_Controller {
 		$this->load->library('form_validation');
 		$this->form_validation->set_rules('email', 'Email', 'trim|required|xss_clean');
 		$this->form_validation->set_rules('password', 'Password', 'trim|required|xss_clean|callback_check_database');
+
 		if($this->form_validation->run() == FALSE)
 		{
 			$data['title']='Login';
@@ -175,7 +179,7 @@ class user extends MY_Controller {
 		}
 		else
 		{
-			redirect('client/client_home', 'refresh');
+			redirect('client/client_home');
 		}
 	}
 	public function check_database()
@@ -184,14 +188,17 @@ class user extends MY_Controller {
 		$email = $this->input->post('email');
 		$password = md5($this->input->post('password'));
 		$result = $this->user_model->login($email, $password);
+
 		if($result)
 		{
 			$sess_array = array();
 			foreach($result as $row)
 			{
 				$sess_array = array(
-				'user_id' => $row->user_id,
-				'email' => $row->email
+				'user_id' 		=> $row->user_id,
+				'email' 		=> $row->email,
+				'role_id' 		=> $row->role_id,
+				'account_type' 	=> $row->acc_id
 				);
 				$this->session->set_userdata('client_logged_in', $sess_array);
 			}

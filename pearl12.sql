@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.9
+-- version 4.1.12
 -- http://www.phpmyadmin.net
 --
--- Host: localhost
--- Generation Time: Mar 19, 2015 at 06:25 PM
--- Server version: 5.6.14
--- PHP Version: 5.5.6
+-- Host: 127.0.0.1
+-- Generation Time: Mar 19, 2015 at 04:24 AM
+-- Server version: 5.6.16
+-- PHP Version: 5.5.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -52,19 +52,16 @@ CREATE TABLE IF NOT EXISTS `pl_user` (
   `password` varchar(255) NOT NULL,
   `role_id` int(50) NOT NULL,
   `acc_id` int(2) NOT NULL,
-  `acc_active` int(2) NOT NULL,
   `is_active` int(2) NOT NULL,
   PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `pl_user`
 --
 
-INSERT INTO `pl_user` (`user_id`, `email`, `password`, `role_id`, `acc_id`, `acc_active`, `is_active`) VALUES
-(1, 'admin@pearl.com', '9283a03246ef2dacdc21a9b137817ec1', 1, 3, 1, 1),
-(2, 'test@sdfdf.com', 'c293048f9e4415de9d3c28705d5c4646', 2, 0, 0, 1),
-(3, 'tessst@sdfdf.com', 'c293048f9e4415de9d3c28705d5c4646', 2, 1, 0, 1);
+INSERT INTO `pl_user` (`user_id`, `email`, `password`, `role_id`, `acc_id`, `is_active`) VALUES
+(1, 'admin@pearl.com', '9283a03246ef2dacdc21a9b137817ec1', 1, 3, 1);
 
 -- --------------------------------------------------------
 
@@ -78,7 +75,7 @@ CREATE TABLE IF NOT EXISTS `pl_usermeta` (
   `meta_key` varchar(200) NOT NULL,
   `meta_value` varchar(200) NOT NULL,
   PRIMARY KEY (`umeta_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `pl_usermeta`
@@ -88,11 +85,7 @@ INSERT INTO `pl_usermeta` (`umeta_id`, `user_id`, `meta_key`, `meta_value`) VALU
 (1, 1, 'first_name', '0'),
 (2, 1, 'last_name', 'Kumar'),
 (3, 2, 'first_name', '0'),
-(4, 2, 'last_name', 'kl'),
-(5, 2, 'company_name', 'Test'),
-(6, 2, 'company_reg_num', '1223'),
-(7, 3, 'first_name', '0'),
-(8, 3, 'last_name', '22221111');
+(4, 2, 'last_name', 'kl');
 
 -- --------------------------------------------------------
 
