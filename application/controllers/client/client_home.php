@@ -21,6 +21,7 @@ class Client_home extends MY_Controller {
 		parent::__construct();
 		$this->load->model('user_model');
 		getCurrentAccountStatus($role_id = array(1,2));
+		die();
 	}
 
 	public function index()
