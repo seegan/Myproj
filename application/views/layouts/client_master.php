@@ -35,6 +35,13 @@
 
             <div class="view-container">
                 <section id="content" class="animate-fade-up">
+                     <div class="container-fluid">
+                        <div class="row">
+                            <div class="alert alert-warning">
+                                this is warning message
+                            </div>
+                        </div>
+                    </div>
                     <?php $this->load->view($content); ?>
                 </section>
             </div>

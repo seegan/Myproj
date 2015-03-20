@@ -100,3 +100,17 @@ function getCurrentUserSession()
     	return false;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+//Created By Suji
+//Get Users Type
