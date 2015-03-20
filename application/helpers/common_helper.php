@@ -82,7 +82,6 @@ function isUserAccountActive($user_id = '')
 	{
 		$data = true;
 	}
-
 	return $data;
 }
 
