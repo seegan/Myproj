@@ -49,6 +49,7 @@
 					<th>check</th>
 					<th>Email</th>
 					<th class="text-center">Action</th>
+					<th>Status</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -66,14 +67,30 @@
 							<?php
 								if($value->acc_active == 0)
 								{
-									echo '<a href="" class="btn btn-info"><i class="fa fa-check-circle"></i>Approve</a>';
+									echo '<a href="" data-clientid = "'.$value->user_id.'" class="btn btn-success client-approve"><i class="fa fa-check-circle"></i>Approve</a>';
+									echo '<a href="" data-clientid = "'.$value->user_id.'" class="btn btn-warning client-disapprove" style="display:none;"><i class="fa fa-close"></i>Dis Approve</a>';
 								}
 								if($value->acc_active == 1)
 								{
-									echo '<a href="" class="btn btn-warning"><i class="fa fa-close"></i>Dis Approve</a>';
+									echo '<a href="" data-clientid = "'.$value->user_id.'" class="btn btn-success client-approve" style="display:none;"><i class="fa fa-check-circle"></i>Approve</a>';
+									echo '<a href="" data-clientid = "'.$value->user_id.'" class="btn btn-warning client-disapprove"><i class="fa fa-close"></i>Dis Approve</a>';
 								}
 							?>
-								<a href="" class="btn btn-danger"><i class="fa fa-trash-o"></i>Remove</a>
+								<a href="" class="btn btn-danger client-remove"><i class="fa fa-trash-o"></i>Remove</a>
+							</td>
+							<td>
+							<?php
+								if($value->acc_active == 0)
+								{
+									echo '<i class="fa fa-circle-thin fa-circle-thin-yellow client-pending-icon"></i>';
+									echo '<i class="fa fa-check-circle fa-check-circle-green client-approved-icon" style="display:none;"></i>';
+								}
+								if($value->acc_active == 1)
+								{
+									echo '<i class="fa fa-circle-thin fa-circle-thin-yellow client-pending-icon" style="display:none;"></i>';
+									echo '<i class="fa fa-check-circle fa-check-circle-green client-approved-icon"></i>';
+								}
+							?>
 							</td>
 						</tr>
 			<?php

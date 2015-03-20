@@ -4,3 +4,10 @@
 .margin-top-20{
 	margin-top: 20px;
 }
+
+.fa-check-circle-green {
+	color: green;
+}
+.fa-circle-thin-yellow {
+	color: orange;
+}

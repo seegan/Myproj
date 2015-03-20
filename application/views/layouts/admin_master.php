@@ -12,35 +12,43 @@
         <link href="<?php echo base_url(); ?>assets/role_assets/custom/css/styles.css" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/role_assets/flat-icon/flaticon.css">
 
+        <!-- Admin ajax url -->
+        <script type='text/javascript'>
+        var ajax_url = {"url":"<?php echo base_url('admin_ajax'); ?>"};
+        </script>
 
         <!-- end needs images -->
 
-            <link href="<?php echo base_url(); ?>assets/role_assets/styles/main.css" rel="stylesheet">
+        <link href="<?php echo base_url(); ?>assets/role_assets/styles/main.css" rel="stylesheet">
 
-    <style></style><style type="text/css">.jqstooltip { position: absolute;left: 0px;top: 0px;visibility: hidden;background: rgb(0, 0, 0) transparent;background-color: rgba(0,0,0,0.6);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";color: white;font: 10px arial, san serif;text-align: left;white-space: nowrap;padding: 5px;border: 1px solid white;z-index: 10000;}.jqsfield { color: white;font: 10px arial, san serif;text-align: left;}</style><style id="holderjs-style" type="text/css"></style></head>
-   <body data-ng-app="app" id="app" data-custom-background="" data-off-canvas-nav="">
-        <!--[if lt IE 9]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-        <div data-ng-controller="AppCtrl">
-            <div data-ng-hide="isSpecificPage()" data-ng-cloak="">
-                <section id="header" class="top-header">
-                    <?php include('admin_header.php');?>
-                </section>
+        <style type="text/css">.jqstooltip { position: absolute;left: 0px;top: 0px;visibility: hidden;background: rgb(0, 0, 0) transparent;background-color: rgba(0,0,0,0.6);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";color: white;font: 10px arial, san serif;text-align: left;white-space: nowrap;padding: 5px;border: 1px solid white;z-index: 10000;}.jqsfield { color: white;font: 10px arial, san serif;text-align: left;}</style><style id="holderjs-style" type="text/css"></style></head>
+        
+        <body data-ng-app="app" id="app" data-custom-background="" data-off-canvas-nav="">
+            <!--[if lt IE 9]>
+                <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+            <![endif]-->
+            <div data-ng-controller="AppCtrl">
+                <div data-ng-hide="isSpecificPage()" data-ng-cloak="">
+                    <section id="header" class="top-header">
+                        <?php include('admin_header.php');?>
+                    </section>
 
-                <aside id="nav-container">
-                    <?php include('admin_nav.php');?>
-                </aside>
+                    <aside id="nav-container">
+                        <?php include('admin_nav.php');?>
+                    </aside>
+                </div>
+
+                <div class="view-container">
+                    <section id="content" class="animate-fade-up">
+                        <?php $this->load->view($content); ?>
+                    </section>
+                </div>
             </div>
+            <script src="<?php echo base_url();?>assets/role_assets/scripts/vendor.js"></script>
+            <script src="<?php echo base_url();?>assets/role_assets/scripts/ui.js"></script>
+            <script src="<?php echo base_url();?>assets/role_assets/scripts/app.js"></script>
+            <script src="<?php echo base_url();?>assets/role_assets/custom/js/custom_script.js"></script>
 
-            <div class="view-container">
-                <section id="content" class="animate-fade-up">
-                    <?php $this->load->view($content); ?>
-                </section>
-            </div>
-        </div>
-        <script src="<?php echo base_url();?>assets/role_assets/scripts/vendor.js"></script>
-        <script src="<?php echo base_url();?>assets/role_assets/scripts/ui.js"></script>
-        <script src="<?php echo base_url();?>assets/role_assets/scripts/app.js"></script>
-    </body>    </html>
+        </body>
+    </html>
     
