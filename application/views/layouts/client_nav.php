@@ -10,11 +10,9 @@
         <li>
             <a href="#/ui"><i class="fa fa-magic"><span class="icon-bg bg-orange"></span></i><span data-i18n="Manage Users"></span></a>
             <ul>
-                <li><a href="#/ui/buttons"><i class="fa fa-caret-right"></i>Administrator</a></li>
-                <li><a href="#/ui/buttons"><i class="fa fa-caret-right"></i>Transaction Initiator</a></li>
-                <li><a href="#/ui/buttons"><i class="fa fa-caret-right"></i>Transaction Reviewer</a></li>
-                <li><a href="#/ui/buttons"><i class="fa fa-caret-right"></i>Transaction Approver1</a></li>
-                <li><a href="#/ui/buttons"><i class="fa fa-caret-right"></i>Transaction Approver2</a></li>                
+                <?php if(getUserRoleType()){foreach (getUserRoleType()->result() as $value) {?>
+                <li><a href="<?php echo base_url();?>client/manageusers/manage/<?php echo $value->role_id; ?>"><i class="fa fa-caret-right"></i><?php echo $value->name;?></a></li>
+                <?php }}?>         
             </ul>
         </li>
         <li>

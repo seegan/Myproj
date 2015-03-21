@@ -229,7 +229,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="<?php base_url();?>admin_home/logout">
+                        <a href="<?php echo base_url("super_admin/admin_home/logout");?>">
                             <i class="fa fa-sign-out"></i>
                             <span data-i18n="Log Out"></span>
                         </a>

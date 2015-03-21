@@ -117,4 +117,16 @@ function totalCount($table='',$condition=array())
 
 
 //Created By Suji
-//Get Users Type
+//Get Users Type for navigation menu etc..
+function getUserRoleType()
+{
+	$CI = & get_instance();
+	$cl_type = $CI->user_model->selectData( $table="pl_user_role",$sel = array('role_id','name'), $con = array('role_id >' => 2 ) );
+	return $cl_type;
+}
+function getUserAllDetailsByRoleID($role_id,$user_id)
+{
+	$CI = & get_instance();
+	$cl_type = $CI->user_model->selectData( $table="pl_user",$sel = "*", $con = array('role_id ' => $role_id , 'ref_id' => $user_id ));
+	return $cl_type;
+}
