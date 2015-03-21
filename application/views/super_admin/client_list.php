@@ -1,5 +1,11 @@
 <?php
  $client_list = getAllClients();
+
+$total_clients 			= totalCount($table='pl_user',$condition=array('role_id'=>2,'is_active'=>1));
+$total_pending_clients 	= totalCount($table='pl_user',$condition=array('role_id'=>2,'acc_active'=>0,'is_active'=>1));
+$total_approved_clients 	= totalCount($table='pl_user',$condition=array('role_id'=>2,'acc_active'=>1,'is_active'=>1));
+
+
 ?>
 
 <div class="container-fluid" style="margin-top:20px;">
@@ -10,7 +16,7 @@
                     <i class="fa fa-users text-huge"></i>
                 </div>
                 <div class="panel-right panel-item bg-reverse">
-                    <p class="size-h1 clients_count">1234</p>
+                    <p class="size-h1 clients_count"><?php echo $total_clients; ?></p>
                     <p class="text-muted">Clients</p>
                 </div>
 	        </section>
@@ -21,7 +27,7 @@
                     <i class="fa fa-check text-huge"></i>
                 </div>
                 <div class="panel-right panel-item bg-reverse">
-                    <p class="size-h1 approved_clients_count">1200</p>
+                    <p class="size-h1 approved_clients_count"><?php echo $total_approved_clients; ?></p>
                     <p class="text-muted">Approved</p>
                 </div>
 	        </section>
@@ -32,7 +38,7 @@
                     <i class="fa fa-clock-o text-huge"></i>
                 </div>
                 <div class="panel-right panel-item bg-reverse">
-                    <p class="size-h1 pending_clients_count">34</p>
+                    <p class="size-h1 pending_clients_count"><?php echo $total_pending_clients; ?></p>
                     <p class="text-muted">Pending</p>
                 </div>
 	        </section>

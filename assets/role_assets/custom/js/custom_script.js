@@ -63,8 +63,8 @@ $(document).ready(function(){
                     that.parent().parent().find('.client-pending-icon').css('display','inline-block');
 
                     $('.clients_count').html(tem.total_clients);
-                    $('.approved_clients_count').html(tem.total_pending_clients);
-                    $('.pending_clients_count').html(tem.total_approved_clients);
+                    $('.approved_clients_count').html(tem.total_approved_clients);
+                    $('.pending_clients_count').html(tem.total_pending_clients);
                 }
                 else
                 {
