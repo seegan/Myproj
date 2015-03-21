@@ -9,11 +9,9 @@
 						<label for="select" class="col-lg-3 control-label">Users Type</label>
 						<div class="col-lg-9">
 							<select class="form-control" id="select" name="cl_type">
-								<option value="3">Administrator</option>
-								<option value="4">Transaction Initiator</option>
-								<option value="5">Transaction Reviewer</option>
-								<option value="6">Transaction Approver 1</option>
-								<option value="7">Transaction Approver 2</option>
+								<?php if(getUserRoleType()){foreach (getUserRoleType()->result() as $value) {?>
+								<option value="<?php echo $value->role_id;?>"><?php echo $value->name;?></option>
+								<?php }}?>
 							</select>
 						</div>
 					</div>

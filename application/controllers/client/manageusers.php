@@ -23,11 +23,21 @@ class Manageusers extends MY_Controller {
 	   getCurrentAccountStatus($role_id = array(1,2));
 	}
 	
-	public function index()
+	public function manage($role_id)
 	{
-		$this->load->helper(array('form'));
-		$data['title']='Create Users';
-		$data['content']='client/create_users';
-		$this->load->view($this->layout_client,$data);
+		if ( !in_array($role_id,array(3,4,5,6,7)) )	
+		{
+			$data['msg'] = "Wrong Url please check the url";
+			$data['title']='Status Info';
+			$data['content'] ='client/status';
+			$this->load->view('layouts/status_master',$data);  
+		}
+		else
+		{
+			$data['role_id'] = $role_id;
+			$data['title']='Manage Users';
+			$data['content']='client/manage_users';
+			$this->load->view($this->layout_client,$data);
+		}
 	}
 }
