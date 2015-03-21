@@ -10,7 +10,7 @@
                     <i class="fa fa-users text-huge"></i>
                 </div>
                 <div class="panel-right panel-item bg-reverse">
-                    <p class="size-h1">1234</p>
+                    <p class="size-h1 clients_count">1234</p>
                     <p class="text-muted">Clients</p>
                 </div>
 	        </section>
@@ -21,7 +21,7 @@
                     <i class="fa fa-check text-huge"></i>
                 </div>
                 <div class="panel-right panel-item bg-reverse">
-                    <p class="size-h1">1200</p>
+                    <p class="size-h1 approved_clients_count">1200</p>
                     <p class="text-muted">Approved</p>
                 </div>
 	        </section>
@@ -32,7 +32,7 @@
                     <i class="fa fa-clock-o text-huge"></i>
                 </div>
                 <div class="panel-right panel-item bg-reverse">
-                    <p class="size-h1">34</p>
+                    <p class="size-h1 pending_clients_count">34</p>
                     <p class="text-muted">Pending</p>
                 </div>
 	        </section>

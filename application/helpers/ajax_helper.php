@@ -13,6 +13,7 @@
 
 function admin_client_action($data)
 {
+	$r_data['result'] = false;
 
 	$action = $data['action'];
 	$client_id = $data['client_id'];
@@ -24,15 +25,30 @@ function admin_client_action($data)
 	//For Client account approve
 	if($action == 'admin_client_approve')
 	{
-		$data = array('acc_active'=>1);
-		$data = $CI->user_model->updateData($table,$data,$condition);
-		var_dump($data); die();
+		$data_val = array('acc_active'=>1);
+		$result = $CI->user_model->updateData($table,$data_val,$condition);
+		if($result!=0)
+		{
+			$r_data['result'] = true;
+		}
+
 	}
 
 	if($action == 'admin_client_disapprove')
 	{
-		$data = array('acc_active'=>0);
-		$data = $CI->user_model->updateData($table,$data,$condition);
-		var_dump($data); die();		
+		$data_val = array('acc_active'=>0);
+		$result = $CI->user_model->updateData($table,$data_val,$condition);
+		if($result!=0)
+		{
+			$r_data['result'] = true;
+		}
 	}
+
+
+	$r_data['total_clients'] 			= totalCount($table='pl_user',$condition=array('role_id'=>2,'is_active'=>1));
+	$r_data['total_pending_clients'] 	= totalCount($table='pl_user',$condition=array('role_id'=>2,'acc_active'=>0,'is_active'=>1));
+	$r_data['total_approved_clients'] 	= totalCount($table='pl_user',$condition=array('role_id'=>2,'acc_active'=>1,'is_active'=>1));
+	
+
+	echo json_encode($r_data);
 }

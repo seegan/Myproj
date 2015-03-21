@@ -10,7 +10,9 @@ Class user_model extends CI_Model
 	function updateData($table="",$updateData=array(),$condition=array())
 	{
         $this->db->where($condition);
-        $this->db->update($table, $updateData); 
+        $this->db->update($table, $updateData);
+
+        return $this->db->affected_rows(); 
 	}//End of updateData Function
 
 	function selectData($table="",$selectData=array(),$condition=array(),$limit="")
@@ -32,6 +34,21 @@ Class user_model extends CI_Model
 			return false;	
 
 	}
+
+	function getCount($table='',$condition=array())
+	{
+		$this->db->from($table);
+		if(!empty($condition))
+		{
+			$this->db->where($condition);
+		}
+
+		$query = $this->db->get();
+		return $query->num_rows();
+	}
+
+
+
 
     function login($email, $password)
 	{

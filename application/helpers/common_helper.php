@@ -102,6 +102,11 @@ function getCurrentUserSession()
 
 
 
+function totalCount($table='',$condition=array())
+{
+	$CI = & get_instance();
+	return $CI->user_model->getCount($table, $condition);
+}
 
 
 
