@@ -153,36 +153,7 @@ function updateRecipientData($recip_data,$recip_id)
 	$cl_type = $CI->user_model->updateData( $table="pl_recipients",$update_data = $recip_data, $con = array('recipient_id ' => $recip_id ));
 	return $cl_type;
 }
-// function mysqldatetime_to_timestamp($datetime = "")
-// {
 
-// 	$CI = & get_instance();
-// 	$CI->load->helper('date');
-//   // function is only applicable for valid MySQL DATETIME (19 characters) and DATE (10 characters)
-//  	$l = strlen($datetime);
-//     if(!($l == 10 || $l == 19))
-//       return 0;
-
-//     //
-//     $date = $datetime;
-//     $hours = 0;
-//     $minutes = 0;
-//     $seconds = 0;
-
-//     // DATETIME only
-//     if($l == 19)
-//     {
-//       list($date, $time) = explode(" ", $datetime);
-//       list($hours, $minutes, $seconds) = explode(":", $time);
-//     }
-
-//     list($year, $month, $day) = explode("-", $date);
-//     $int_time=mktime($hours, $minutes, $seconds, $month, $day, $year);
-//     $post_date = $int_time;
-// 	$now = time();
-// 	// will echo "2 hours ago" (at the time of this post)
-// 	echo timespan($post_date, $now) . ' ago';
-// }
 
 function mysqldatetime_to_timestamp($date)
 {
