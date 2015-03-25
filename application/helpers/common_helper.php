@@ -153,32 +153,74 @@ function updateRecipientData($recip_data,$recip_id)
 	$cl_type = $CI->user_model->updateData( $table="pl_recipients",$update_data = $recip_data, $con = array('recipient_id ' => $recip_id ));
 	return $cl_type;
 }
-function mysqldatetime_to_timestamp($datetime = "")
+// function mysqldatetime_to_timestamp($datetime = "")
+// {
+
+// 	$CI = & get_instance();
+// 	$CI->load->helper('date');
+//   // function is only applicable for valid MySQL DATETIME (19 characters) and DATE (10 characters)
+//  	$l = strlen($datetime);
+//     if(!($l == 10 || $l == 19))
+//       return 0;
+
+//     //
+//     $date = $datetime;
+//     $hours = 0;
+//     $minutes = 0;
+//     $seconds = 0;
+
+//     // DATETIME only
+//     if($l == 19)
+//     {
+//       list($date, $time) = explode(" ", $datetime);
+//       list($hours, $minutes, $seconds) = explode(":", $time);
+//     }
+
+//     list($year, $month, $day) = explode("-", $date);
+//     $int_time=mktime($hours, $minutes, $seconds, $month, $day, $year);
+//     $post_date = $int_time;
+// 	$now = time();
+// 	// will echo "2 hours ago" (at the time of this post)
+// 	echo timespan($post_date, $now) . ' ago';
+// }
+
+function mysqldatetime_to_timestamp($date)
 {
-	$CI = & get_instance();
-	$CI->load->helper('date');
-  // function is only applicable for valid MySQL DATETIME (19 characters) and DATE (10 characters)
- 	$l = strlen($datetime);
-    if(!($l == 10 || $l == 19))
-      return 0;
-
-    //
-    $date = $datetime;
-    $hours = 0;
-    $minutes = 0;
-    $seconds = 0;
-
-    // DATETIME only
-    if($l == 19)
-    {
-      list($date, $time) = explode(" ", $datetime);
-      list($hours, $minutes, $seconds) = explode(":", $time);
+	date_default_timezone_set('Asia/Kolkata'); 
+    if(empty($date)) {
+        return "No date provided";
+    }
+    
+    $periods         = array("second", "minute", "hour", "day", "week", "month", "year", "decade");
+    $lengths         = array("60","60","24","7","4.35","12","10");
+    
+    $now             = time();
+    $unix_date         = strtotime($date);
+    
+       // check validity of date
+    if(empty($unix_date)) {    
+        return "Bad date";
     }
 
-    list($year, $month, $day) = explode("-", $date);
-    $int_time=mktime($hours, $minutes, $seconds, $month, $day, $year);
-    $post_date = $int_time;
-	$now = time();
-	// will echo "2 hours ago" (at the time of this post)
-	echo timespan($post_date, $now) . ' ago';
+    // is it future date or past date
+    if($now > $unix_date) {    
+        $difference     = $now - $unix_date;
+        $tense         = "ago";
+        
+    } else {
+        $difference     = $unix_date - $now;
+        $tense         = "from now";
+    }
+    
+    for($j = 0; $difference >= $lengths[$j] && $j < count($lengths)-1; $j++) {
+        $difference /= $lengths[$j];
+    }
+    
+    $difference = round($difference);
+    
+    if($difference != 1) {
+        $periods[$j].= "s";
+    }
+    
+    return "$difference $periods[$j] {$tense}";
 }
