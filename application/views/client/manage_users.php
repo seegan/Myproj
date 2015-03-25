@@ -17,14 +17,16 @@
                     }
                     if(getUserAllDetailsByRoleID($role_id,$user_id))
                     {
-                    $i=0; 
                     foreach (getUserAllDetailsByRoleID($role_id,$user_id)->result() as $value) 
                     {
-                    $i++;?>
+                    ?>
 				<tr>
-					<td><?php echo $i;?></td>
+					<td><?php echo $value->user_id;?></td>
 					<td><?php echo $value->email;?></td>
-					<td><a href="#" class="btn btn-info"><i class="fa fa-check-circle"></i>View</a></td>
+					<td>
+						<a href="#" class="btn btn-info"><i class="fa fa-check-circle"></i>View</a>
+					</td>
+
 				</tr>
 				<?php }}else{?>
 				<tr>

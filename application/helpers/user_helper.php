@@ -18,11 +18,20 @@
 		$user_id = $CI->user_model->insertData($table="pl_user",$user_data);
 	    return $user_id;
 	}
+
 	function setUserMeta($meta_data)
 	{
 		$CI =& get_instance();
 		$CI->load->model('user_model');
 		$CI->user_model->insertData($table="pl_usermeta",$meta_data);
 		return true;
+	}
+
+	function registerRecipientData($recip_data)
+	{
+		$CI =& get_instance();
+		$CI->load->model('user_model');
+		$recip_id = $CI->user_model->insertData($table="pl_recipients",$recip_data);
+	    return $recip_id;
 	}
 

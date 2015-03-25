@@ -70,6 +70,7 @@ function getAllClients()
 
 
 
+
 //Getting status
 
 function isUserAccountActive($user_id = '')
@@ -121,12 +122,63 @@ function totalCount($table='',$condition=array())
 function getUserRoleType()
 {
 	$CI = & get_instance();
-	$cl_type = $CI->user_model->selectData( $table="pl_user_role",$sel = array('role_id','name'), $con = array('role_id >' => 2 ) );
+	$cl_type = $CI->user_model->selectData( $table="pl_user_role",$sel = array('role_id','name'), $con = array('role_id >' => 2 ,'is_active' => 1) );
 	return $cl_type;
 }
+
 function getUserAllDetailsByRoleID($role_id,$user_id)
 {
 	$CI = & get_instance();
-	$cl_type = $CI->user_model->selectData( $table="pl_user",$sel = "*", $con = array('role_id ' => $role_id , 'ref_id' => $user_id ));
+	$cl_type = $CI->user_model->selectData( $table="pl_user",$sel = "*", $con = array('role_id ' => $role_id , 'ref_id' => $user_id ,'is_active' => 1));
 	return $cl_type;
+}
+
+function getAllRecipientDetailsByRefID($ref_id)
+{
+	$CI = & get_instance();
+	$cl_type = $CI->user_model->selectData( $table="pl_recipients",$sel = array('recipient_id' , 'first_name' , 'email' , 'datetime'), $con = array('ref_id ' => $ref_id , 'is_active' => 1 ));
+	return $cl_type;
+}
+
+function getRecipientByID($recip_id)
+{
+	$CI = & get_instance();
+	$cl_type = $CI->user_model->selectData( $table="pl_recipients",$sel = array('*'), $con = array('recipient_id ' => $recip_id, 'is_active' => 1 ));
+	return $cl_type;
+}
+
+function updateRecipientData($recip_data,$recip_id)
+{
+	$CI = & get_instance();
+	$cl_type = $CI->user_model->updateData( $table="pl_recipients",$update_data = $recip_data, $con = array('recipient_id ' => $recip_id ));
+	return $cl_type;
+}
+function mysqldatetime_to_timestamp($datetime = "")
+{
+	$CI = & get_instance();
+	$CI->load->helper('date');
+  // function is only applicable for valid MySQL DATETIME (19 characters) and DATE (10 characters)
+ 	$l = strlen($datetime);
+    if(!($l == 10 || $l == 19))
+      return 0;
+
+    //
+    $date = $datetime;
+    $hours = 0;
+    $minutes = 0;
+    $seconds = 0;
+
+    // DATETIME only
+    if($l == 19)
+    {
+      list($date, $time) = explode(" ", $datetime);
+      list($hours, $minutes, $seconds) = explode(":", $time);
+    }
+
+    list($year, $month, $day) = explode("-", $date);
+    $int_time=mktime($hours, $minutes, $seconds, $month, $day, $year);
+    $post_date = $int_time;
+	$now = time();
+	// will echo "2 hours ago" (at the time of this post)
+	echo timespan($post_date, $now) . ' ago';
 }
