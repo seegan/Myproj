@@ -20,7 +20,7 @@ if(dirname(__FILE__) == 'C:\xampp\htdocs\Myproj\application\config')
 }
 else
 {
-	$config['base_url']	= 'http://localhost/myproj/Myproj';	
+	$config['base_url']	= 'http://localhost/Myproj/Myproj';	
 }
 
 /*
