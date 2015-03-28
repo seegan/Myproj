@@ -158,7 +158,7 @@ function getUserAllDetailsByRoleID($role_id,$user_id)
 function getAllRecipientDetailsByRefID($ref_id)
 {
 	$CI = & get_instance();
-	$cl_type = $CI->user_model->selectData( $table="pl_recipients",$sel = array('recipient_id' , 'first_name' , 'email' , 'datetime'), $con = array('ref_id ' => $ref_id , 'is_active' => 1 ));
+	$cl_type = $CI->user_model->selectData( $table="pl_recipients",$sel = array('recipient_id' , 'first_name' , 'email' , 'creation_date'), $con = array('ref_id ' => $ref_id , 'is_active' => 1 ));
 	return $cl_type;
 }
 

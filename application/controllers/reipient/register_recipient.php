@@ -20,7 +20,7 @@ class register_recipient extends MY_Controller {
 	{
 	   parent::__construct();
 	   $this->load->model(array('admin_model','user_model'));
-	   getCurrentAccountStatus($role_id = array(1,2,4));
+	   getCurrentAccountStatus($role_id = array(1,2,3,4));
 	}
 
 	public function post_recipient()
@@ -48,7 +48,7 @@ class register_recipient extends MY_Controller {
 		{
 			$this->load->helper('form');
 			$data['title']='Create Recipients';
-			$data['content'] ='reipients_manage/create_recipients';
+			$data['content'] ='reipient/create_recipients';
 			$this->load->view($this->layout_transaction_initiator,$data);  
 		}
 		else
@@ -110,7 +110,7 @@ class register_recipient extends MY_Controller {
 			$this->load->helper('form');
 			$data['recipient_id'] = $recip_id;
 			$data['title']='Create Recipients';
-			$data['content'] ='reipients_manage/edit_recipient';
+			$data['content'] ='reipient/edit_recipient';
 			$this->load->view($this->layout_transaction_initiator,$data);  
 		}
 		else
@@ -130,7 +130,7 @@ class register_recipient extends MY_Controller {
 			if($last_insert_id)
 			{
 				$this->session->set_flashdata('item', 'One Record Updated');
-				redirect('reipients_manage/managerecipients/manage');
+				redirect('reipient/manage');
 			}
 			else
 			{

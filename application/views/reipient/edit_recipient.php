@@ -7,7 +7,7 @@
 
 				foreach (getRecipientByID($recipient_id)->result() as $value) {?>
 
-			<form class="form-horizontal" action="<?php echo base_url();?>reipients_manage/register_recipient/update_recipient" method="post">
+			<form class="form-horizontal" action="<?php echo base_url();?>reipient/register_recipient/update_recipient" method="post">
 				<fieldset>
 					<legend>Edit Recipient</legend>
 					<div class="form-group">

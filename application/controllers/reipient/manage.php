@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Createrecipients extends MY_Controller {
+class Manage extends MY_Controller {
 	/**
 	 * Index Page for this controller.
 	 *
@@ -20,14 +20,29 @@ class Createrecipients extends MY_Controller {
 	{
 	   parent::__construct();
 	   $this->load->model(array('admin_model','user_model'));
-	   getCurrentAccountStatus($role_id = array(1,2,4));
+	   getCurrentAccountStatus($role_id = array(1,2,3,4));
+	}
+	
+	public function index()
+	{	
+		$data['title'] = 'Manage Recipients';
+		$data['content'] = 'reipient/manage_recipients';
+		$this->load->view($this->layout_transaction_initiator,$data);
+	}
+	public function view($recip_id)
+	{	
+		$data['recipient_id'] = $recip_id;
+		$data['title'] = 'View Recipient';
+		$data['content'] = 'reipient/view_recipient';
+		$this->load->view($this->layout_transaction_initiator,$data);
+	}
+	public function edit($recip_id)
+	{	
+		$this->load->helper('form');
+		$data['recipient_id'] = $recip_id;
+		$data['title'] = 'Edit Recipient';
+		$data['content'] = 'reipient/edit_recipient';
+		$this->load->view($this->layout_transaction_initiator,$data);
 	}
 
-	public function index()
-	{
-		$this->load->helper('form');
-		$data['title']='Create Recipients';
-		$data['content'] ='reipients_manage/create_recipients';
-		$this->load->view($this->layout_transaction_initiator,$data);  
-	}
 }

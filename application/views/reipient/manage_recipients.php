@@ -26,11 +26,11 @@
 					<td><?php echo $value->recipient_id;?></td>
 					<td><?php echo $value->first_name;?></td>
 					<td><?php echo $value->email;?></td>
-					<td><?php echo mysqldatetime_to_timestamp($value->datetime);?></td>
+					<td><?php echo mysqldatetime_to_timestamp($value->creation_date);?></td>
 					<td>
-						<a href="<?php echo base_url('reipients_manage/managerecipients/view/'.$value->recipient_id)?>" class="btn btn-success"><i class="fa fa-eye"></i>  View</a>
-						<a href="<?php echo base_url('reipients_manage/managerecipients/edit/'.$value->recipient_id)?>" class="btn btn-info"><i class="fa fa-pencil"></i>  Edit</a>
-						<a href="<?php echo base_url('reipients_manage/managerecipients/delete/'.$value->recipient_id)?>" class="btn btn-danger"><i class="fa fa-trash-o"></i>  Delete</a>
+						<a href="<?php echo base_url('reipient/manage/view/'.$value->recipient_id)?>" class="btn btn-success"><i class="fa fa-eye"></i>  View</a>
+						<a href="<?php echo base_url('reipient/manage/edit/'.$value->recipient_id)?>" class="btn btn-info"><i class="fa fa-pencil"></i>  Edit</a>
+						<a href="<?php echo base_url('reipient/manage/delete/'.$value->recipient_id)?>" class="btn btn-danger"><i class="fa fa-trash-o"></i>  Delete</a>
 					</td>
 
 				</tr>

@@ -2,7 +2,7 @@
 	<div class="row">
 		<div class="col-lg-3 col-md-3"></div>
 		<div class="col-lg-6 col-md-6 panel panel-default">
-			<form class="form-horizontal" action="<?php echo base_url();?>reipients_manage/register_recipient/post_recipient" method="post">
+			<form class="form-horizontal" action="<?php echo base_url();?>reipient/register_recipient/post_recipient" method="post">
 				<fieldset>
 					<legend>Create Recipient</legend>
 					<div class="form-group">
