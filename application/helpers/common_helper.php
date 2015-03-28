@@ -58,6 +58,28 @@ function getAllClients()
 }
 
 
+function loginRedirect()
+{
+	$CI = & get_instance();
+	$user_data = $CI->session->userdata;
+	$user_data = $user_data['user_logged_in'];
+
+	if($user_data['role_id'] == '1')
+	{
+		redirect('super_admin/dashboard');
+	}
+
+	if($user_data['role_id'] == '2')
+	{
+		redirect('client/client_home');
+	}
+
+	if($user_data['role_id'] == '3')
+	{
+		redirect('transaction_admin/home');
+	}
+
+}
 
 
 

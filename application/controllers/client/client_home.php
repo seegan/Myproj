@@ -20,11 +20,11 @@ class Client_home extends MY_Controller {
 	{
 		parent::__construct();
 		$this->load->model('user_model');
-		getCurrentAccountStatus($role_id = array(1,2));
 	}
 
 	public function index()
 	{
+		getCurrentAccountStatus($role_id = array(1,2));
 		if($this->session->userdata('user_logged_in'))
   		{
 			$session_data = $this->session->userdata('user_logged_in');

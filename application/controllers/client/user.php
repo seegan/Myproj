@@ -165,6 +165,8 @@ class user extends MY_Controller {
 			return true;
 		}
 	}
+
+
 	public function login_check()
 	{
 		$this->load->library('form_validation');
@@ -179,7 +181,7 @@ class user extends MY_Controller {
 		}
 		else
 		{
-			redirect('client/client_home');
+			loginRedirect();
 		}
 	}
 	public function check_database()
