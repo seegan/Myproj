@@ -19,8 +19,8 @@
                     }
                     if(getAllRecipientDetailsByRefID($ref_id))
                     {
-                    foreach (getAllRecipientDetailsByRefID($ref_id)->result() as $value) 
-                    {
+	                    foreach (getAllRecipientDetailsByRefID($ref_id)->result() as $value) 
+	                    {
                     ?>
 				<tr>
 					<td><?php echo $value->recipient_id;?></td>
@@ -34,7 +34,12 @@
 					</td>
 
 				</tr>
-				<?php }}else{?>
+				<?php 
+						}
+					}
+					else
+					{
+				?>
 				<tr>
 					<td class="text-center alert alert-danger" colspan="3">No records Added</td>
 				</tr>
