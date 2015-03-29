@@ -43,7 +43,18 @@ class register_recipient extends MY_Controller {
 		$email = $this->input->post('email');
 		$gender = $this->input->post('gender');
 		$location = $this->input->post('location');
-		$ref_id = $this->input->post('user_id');
+
+		if(getCurrentUserSession())
+		{
+			$user_session = getCurrentUserSession();
+            $ref_id = $user_session['user_id'];
+		}
+		else
+		{
+			die("User Not Loggedin register_recipient.php");
+		}
+		
+
 		if($this->form_validation->run() == FALSE)
 		{
 			$this->load->helper('form');
@@ -64,11 +75,9 @@ class register_recipient extends MY_Controller {
 				'location' => $location,
 				'ref_id' => $ref_id
 				);
-			$last_insert_id=registerRecipientData($recip_data);
+			$last_insert_id = registerRecipientData($recip_data);
 			if($last_insert_id)
 			{
-				var_dump("ok");
-				die();
 				redirect('client/createusers');
 			}
 			else
