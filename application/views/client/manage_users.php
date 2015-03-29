@@ -15,9 +15,9 @@
                         $user_session = getCurrentUserSession();
                         $user_id = $user_session['user_id'];
                     }
-                    if(getUserAllDetailsByRoleID($role_id,$user_id))
+                    if(getClientUsersDetailByRoleID($role_id,$user_id))
                     {
-                    foreach (getUserAllDetailsByRoleID($role_id,$user_id)->result() as $value) 
+                    foreach (getClientUsersDetailByRoleID($role_id,$user_id)->result() as $value) 
                     {
                     ?>
 				<tr>

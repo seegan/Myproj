@@ -48,6 +48,18 @@ class register_recipient extends MY_Controller {
 		{
 			$user_session = getCurrentUserSession();
             $ref_id = $user_session['user_id'];
+
+            $user = getUserDetailByUserId($ref_id);
+			if($user)
+			{
+				$user = $user->row();
+				$client_id = getClientIdOfUserByRoleAndUserId($user->user_id, $user->role_id, $user->ref_id);
+			}
+			else
+			{
+				die("User not found register_recipient.php");
+			}
+            
 		}
 		else
 		{
@@ -73,12 +85,13 @@ class register_recipient extends MY_Controller {
 				'ref_num' => $refnum,
 				'email' => $email,
 				'location' => $location,
-				'ref_id' => $ref_id
+				'ref_id' => $ref_id,
+				'client_id' => $client_id
 				);
 			$last_insert_id = registerRecipientData($recip_data);
 			if($last_insert_id)
 			{
-				redirect('client/createusers');
+				redirect('reipient/create');
 			}
 			else
 			{
@@ -112,7 +125,17 @@ class register_recipient extends MY_Controller {
 		$email = $this->input->post('email');
 		$gender = $this->input->post('gender');
 		$location = $this->input->post('location');
-		$ref_id = $this->input->post('user_id');
+		//$ref_id = $this->input->post('user_id');
+		if(getCurrentUserSession())
+		{
+			$user_session = getCurrentUserSession();
+            $ref_id = $user_session['user_id'];
+		}
+		else
+		{
+			die("User Not Loggedin register_recipient.php");
+		}
+
 		$recip_id = $this->input->post('recip_id');
 		if($this->form_validation->run() == FALSE)
 		{

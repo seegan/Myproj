@@ -133,7 +133,24 @@ function totalCount($table='',$condition=array())
 
 
 
+function getUserDetailByUserId($user_id)
+{
+	$CI = & get_instance();
+	$user = $CI->user_model->selectData( $table="pl_user",$sel = '*', $con = array('user_id' => $user_id ,'is_active' => 1) );
+	return $user;
+}
 
+function getClientIdOfUserByRoleAndUserId($user_id='', $role_id='', $ref_id='')
+{
+	if($role_id == '1' OR $role_id == '2')
+	{
+		return $user_id;
+	}
+	if($role_id == '3' OR $role_id == '4' OR $role_id == '5' OR $role_id == '6' OR $role_id == '7')
+	{
+		return $ref_id;
+	}
+}
 
 
 
@@ -148,7 +165,7 @@ function getUserRoleType()
 	return $cl_type;
 }
 
-function getUserAllDetailsByRoleID($role_id,$user_id)
+function getClientUsersDetailByRoleID($role_id,$user_id)
 {
 	$CI = & get_instance();
 	$cl_type = $CI->user_model->selectData( $table="pl_user",$sel = "*", $con = array('role_id ' => $role_id , 'ref_id' => $user_id ,'is_active' => 1));
