@@ -48,6 +48,16 @@ function getAdminTopup($user_id)
 	return $success_topup;
 }
 
+function adminFundBalance($user_id)
+{
+	$CI = & get_instance();
+	$topup_fund = $CI->user_model->selectSumData( $table="ta_admin_topup",$sel = 'topup_amount', $con = array('topup_status' => 1 , 'admin_id' => $user_id ));
+	$transaction_fund = $CI->user_model->selectSumData( $table="ta_admin_to_client_transaction",$sel = 'trans_amount', $con = array('trans_approved' => 1 , 'trans_admin_id' => $user_id ));
+	$total_fund=$topup_fund-$transaction_fund;
+	echo $total_fund;
+	
+}
+
 function getPendingTopupClientDetails()
 {
 	$table1 = "pl_user";

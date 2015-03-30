@@ -1,3 +1,9 @@
+<?php 
+    if(getCurrentUserSession())
+        {
+            $user_session = getCurrentUserSession();
+            $user_id = $user_session['user_id'];
+        } ?>
 <div class="container-fluid margin-top-20">
 	<div class="row">
 		<div class="col-lg-6 col-md-6">
@@ -71,7 +77,7 @@
                     <i class="fa fa-usd text-huge"></i>
                 </div>
                 <div class="panel-right panel-item bg-reverse">
-                    <p class="size-h1">5000</p>
+                    <p class="size-h1"><?php adminFundBalance($user_id); ?></p>
                     <p class="text-muted">Fund Balance</p>
                 </div>
             </section>
@@ -93,11 +99,6 @@
                 <div class="panel-body">
                 	<ul class="list-group">
                         <?php 
-                        if(getCurrentUserSession())
-                            {
-                                $user_session = getCurrentUserSession();
-                                $user_id = $user_session['user_id'];
-                            }
                             if(getAdminTopup($user_id))
                             {
                             foreach (getAdminTopup($user_id)->result() as $value) 

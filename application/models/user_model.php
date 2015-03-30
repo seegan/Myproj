@@ -35,6 +35,17 @@ Class user_model extends CI_Model
 
 	}
 
+	function selectSumData($table="",$selectData="",$condition=array())
+	{
+		$this->db->select('SUM('.$selectData.') as total');
+		if(count($condition)>0)	{	
+	 		$this->db->where($condition);
+	 	}
+		$query = $this->db->get($table);
+		$result = $query->row();
+		return $result->total;
+	}
+
 	function selectJoinData($table1="",$table2="",$join_con="",$condition=array())
 	{
 		$this->db->select('*');
