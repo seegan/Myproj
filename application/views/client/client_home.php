@@ -95,8 +95,8 @@
                                             <span class="round-icon sm bg-warning"><i class="fa fa-flask"></i></span>
                                         </span>
                                         <div class="media-body">
-                                            <span class="block"><?php echo $value->topup_amount . " Top Up Pending";?></span>
-                                            <span class="text-muted"><?php echo mysqldatetime_to_timestamp($value->transaction_time);?></span>
+                                            <span class="block"><?php echo $value->trans_amount . " Top Up Pending";?></span>
+                                            <span class="text-muted"><?php echo mysqldatetime_to_timestamp($value->trans_request_date);?></span>
                                         </div>
                                   
                                 </li>
@@ -165,8 +165,8 @@
                                         <span class="round-icon sm bg-success"><i class="fa fa-paper-plane"></i></span>
                                     </span>
                                     <div class="media-body">
-                                        <span class="block"><?php echo $value->topup_amount . " Top Up Success";?></span>
-                                        <span class="text-muted"><?php echo mysqldatetime_to_timestamp($value->transaction_time);?></span>
+                                        <span class="block"><?php echo $value->trans_amount . " Top Up Success";?></span>
+                                        <span class="text-muted"><?php echo mysqldatetime_to_timestamp($value->trans_request_date);?></span>
                                     </div>
                                 </li>
                              <?php }}else{?>    
