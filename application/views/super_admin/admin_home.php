@@ -86,7 +86,7 @@
                     <i class="fa fa-usd text-huge"></i>
                 </div>
                 <div class="panel-right panel-item bg-reverse">
-                    <p class="size-h1">1000</p>
+                    <p class="size-h1"><?php adminPaidBalance($user_id) ?></p>
                     <p class="text-muted">Paied Amount</p>
                 </div>
             </section>

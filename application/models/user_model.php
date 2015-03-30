@@ -20,11 +20,11 @@ Class user_model extends CI_Model
 		if(count($condition)>0)	{	
 	 		$this->db->where($condition);
 	 	}
+
 	 	if(is_numeric($limit))
 	 	{
 	 		$this->db->limit($limit);
 	 	}
-
 		$this->db->from($table);
 	 	$this->db->select($selectData);
 		$result = $this->db->get();

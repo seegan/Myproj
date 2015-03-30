@@ -55,18 +55,29 @@ function topupAdminData($topup_data)
 function getAdminTopup($user_id)
 {
 	$CI = & get_instance();
-	$success_topup = $CI->user_model->selectData( $table="ta_admin_topup",$sel = array('topup_amount','topup_time'), $con = array('topup_status' => 1 , 'admin_id' => $user_id ) , $limit= 5 );
+	$success_topup = $CI->user_model->selectData( $table="ta_admin_topup",$sel = array('topup_amount','topup_time'), $con = array('topup_status' => 1 , 'admin_id' => $user_id ) , $lim= 5 );
 	return $success_topup;
 }
+
+// Get Admin Running Balance using sum of topup_amount minus sum of trans_amount
 
 function adminFundBalance($user_id)
 {
 	$CI = & get_instance();
 	$topup_fund = $CI->user_model->selectSumData( $table="ta_admin_topup",$sel = 'topup_amount', $con = array('topup_status' => 1 , 'admin_id' => $user_id ));
-	$transaction_fund = $CI->user_model->selectSumData( $table="ta_admin_to_client_transaction",$sel = 'trans_amount', $con = array('trans_approved' => 1 , 'trans_admin_id' => $user_id ));
+	$transaction_fund = $CI->user_model->selectSumData( $table="ta_admin_to_client_transaction",$sel = 'trans_amount', $con = array('trans_approved' => 1 , 'trans_admin_id' => $user_id , 'trans_active' => 1 ));
 	$total_fund=$topup_fund-$transaction_fund;
 	echo $total_fund;
 	
+}
+
+// get Admin Paid Amount
+
+function adminPaidBalance($user_id)
+{
+	$CI = & get_instance();
+	$transaction_fund = $CI->user_model->selectSumData( $table="ta_admin_to_client_transaction",$sel = 'trans_amount', $con = array('trans_approved' => 1 , 'trans_admin_id' => $user_id , 'trans_active' => 1 ));
+	echo $transaction_fund;
 }
 
 function getPendingTopupClientDetails()
