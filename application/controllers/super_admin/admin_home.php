@@ -25,10 +25,10 @@ class Admin_home extends MY_Controller {
 	
 	public function index()
 	{
-
-			$data['title']='Dashboard';
-			$data['content']='super_admin/admin_home';
-			$this->load->view($this->layout_role,$data);
+		$this->load->helper('form');
+		$data['title']='Dashboard';
+		$data['content']='super_admin/admin_home';
+		$this->load->view($this->layout_role,$data);
 		
 	}
 	public function logout()

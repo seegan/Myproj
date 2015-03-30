@@ -3,7 +3,7 @@
 		<div class="col-lg-6 col-md-6">
 
 		<!-- Profile of the User -->
-
+        
 			<div class="panel panel-profile">
                 <div class="panel-heading text-center bg-info">
                     <img alt="" src="<?php echo base_url('assets/role_assets/images/g1.jpg');?>" class="img-circle img80_80">
@@ -43,20 +43,12 @@
 			<div class="panel panel-default">
                 <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> Topup Fund</strong></div>
                 <div class="panel-body">
-                	<form class="form-horizontal ng-pristine ng-valid" role="form">
+                	<form class="form-horizontal ng-pristine ng-valid" action="<?php echo base_url('client/topup');?>" method="post">
                         <div class="form-group">
                             <label for="inputAmount" class="col-sm-4 control-label">Topup Amount</label>
                             <div class="col-sm-8">
                                 <div class="input-group ui-spinner" data-ui-spinner="">
-			                        <input type="text" class="form-control" value="1">
-			                        <div class="input-group-btn btn-group-vertical">
-			                            <button type="button" class="btn btn-xs btn-default" data-spin="up">
-			                                <i class="fa fa-angle-up"></i>
-			                            </button>
-			                            <button type="button" class="btn spinner-down btn-xs btn-default" data-spin="down">
-			                                <i class="fa fa-angle-down"></i>
-			                            </button>
-			                        </div>
+			                        <input type="number" class="form-control" name="amount">
 			                    </div>
                             </div>
                         </div>
@@ -67,6 +59,13 @@
                                 <button type="submit" class="btn btn-success">Top up</button>
                             </div>
                         </div>
+                        
+                        <div class="form-group">
+                            <div class="col-sm-offset-4 col-sm-8">
+                                <span><?php echo validation_errors(); ?> </span>
+                            </div>
+                        </div> 
+
                     </form>
                 </div>
             </div>
@@ -79,39 +78,40 @@
                 <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> Pending Topup Fund</strong></div>
                 <div class="panel-body">
                 	<ul class="list-group">
-                        <li class="list-group-item">
-                            <a href="javascript:;" class="media">
-                                <span class="media-left media-icon">
-                                    <span class="round-icon sm bg-warning"><i class="fa fa-flask"></i></span>
-                                </span>
-                                <div class="media-body">
-                                    <span class="block">New tasks needs to be done</span>
-                                    <span class="text-muted">2min ago</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="list-group-item">
-                            <a href="javascript:;" class="media">
-                                <span class="media-left media-icon">
-                                    <span class="round-icon sm bg-warning"><i class="fa fa-flask"></i></span>
-                                </span>
-                                <div class="media-body">
-                                    <span class="block">Change your password</span>
-                                    <span class="text-muted">3 hours ago</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="list-group-item">
-                            <a href="javascript:;" class="media">
-                                <span class="media-left media-icon">
-                                    <span class="round-icon sm bg-warning"><i class="fa fa-flask"></i></span>
-                                </span>
-                                <div class="media-body">
-                                    <span class="block">New feature added</span>
-                                    <span class="text-muted">9 hours ago</span>
-                                </div>
-                            </a>
-                        </li>                       
+                        <?php 
+                        if(getCurrentUserSession())
+                            {
+                                $user_session = getCurrentUserSession();
+                                $user_id = $user_session['user_id'];
+                            }
+                            if(getPendingClientTopup($user_id))
+                            {
+                            foreach (getPendingClientTopup($user_id)->result() as $value) 
+                            {
+                            ?>
+                                <li class="list-group-item">
+                                   
+                                        <span class="media-left media-icon">
+                                            <span class="round-icon sm bg-warning"><i class="fa fa-flask"></i></span>
+                                        </span>
+                                        <div class="media-body">
+                                            <span class="block"><?php echo $value->topup_amount . " Top Up Pending";?></span>
+                                            <span class="text-muted"><?php echo mysqldatetime_to_timestamp($value->transaction_time);?></span>
+                                        </div>
+                                  
+                                </li>
+                            <?php }}else{?>
+                                <li class="list-group-item">
+                                   
+                                        <span class="media-left media-icon">
+                                            <span class="round-icon sm bg-warning"><i class="fa fa-flask"></i></span>
+                                        </span>
+                                        <div class="media-body">
+                                            <span class="block">No records Found</span>
+                                        </div>
+                                   
+                                </li>
+                            <?php }?>         
                     </ul>
                 </div>
             </div>
@@ -149,39 +149,39 @@
                 <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> Accepted Topup Fund</strong></div>
                 <div class="panel-body">
                 	<ul class="list-group">
-                        <li class="list-group-item">
-                            <a href="javascript:;" class="media">
-                                <span class="media-left media-icon">
-                                    <span class="round-icon sm bg-success"><i class="fa fa-paper-plane"></i></span>
-                                </span>
-                                <div class="media-body">
-                                    <span class="block">New tasks needs to be done</span>
-                                    <span class="text-muted">2min ago</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="list-group-item">
-                            <a href="javascript:;" class="media">
-                                <span class="media-left media-icon">
-                                    <span class="round-icon sm bg-success"><i class="fa fa-paper-plane"></i></span>
-                                </span>
-                                <div class="media-body">
-                                    <span class="block">Change your password</span>
-                                    <span class="text-muted">3 hours ago</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="list-group-item">
-                            <a href="javascript:;" class="media">
-                                <span class="media-left media-icon">
-                                    <span class="round-icon sm bg-success"><i class="fa fa-paper-plane"></i></span>
-                                </span>
-                                <div class="media-body">
-                                    <span class="block">New feature added</span>
-                                    <span class="text-muted">9 hours ago</span>
-                                </div>
-                            </a>
-                        </li>                       
+                        <?php 
+                        if(getCurrentUserSession())
+                            {
+                                $user_session = getCurrentUserSession();
+                                $user_id = $user_session['user_id'];
+                            }
+                            if(getSuccessClientTopup($user_id))
+                            {
+                            foreach (getSuccessClientTopup($user_id)->result() as $value) 
+                            {
+                            ?>
+                                <li class="list-group-item">
+                                    <span class="media-left media-icon">
+                                        <span class="round-icon sm bg-success"><i class="fa fa-paper-plane"></i></span>
+                                    </span>
+                                    <div class="media-body">
+                                        <span class="block"><?php echo $value->topup_amount . " Top Up Success";?></span>
+                                        <span class="text-muted"><?php echo mysqldatetime_to_timestamp($value->transaction_time);?></span>
+                                    </div>
+                                </li>
+                             <?php }}else{?>    
+                                <li class="list-group-item">
+                                    <a href="javascript:;" class="media">
+                                        <span class="media-left media-icon">
+                                            <span class="round-icon sm bg-success"><i class="fa fa-paper-plane"></i></span>
+                                        </span>
+                                        <div class="media-body">
+                                            <span class="block">No records Found</span>
+                                        </div>
+                                    </a>
+                                </li>
+                            <?php }?>        
+                                             
                     </ul>
                 </div>
             </div>

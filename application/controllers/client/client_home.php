@@ -20,24 +20,29 @@ class Client_home extends MY_Controller {
 	{
 		parent::__construct();
 		$this->load->model('user_model');
+		getCurrentAccountStatus($role_id = array(1,2));
 	}
 
 	public function index()
 	{
-		getCurrentAccountStatus($role_id = array(1,2));
-		if($this->session->userdata('user_logged_in'))
-  		{
-			$session_data = $this->session->userdata('user_logged_in');
-	     	$data['email'] = $session_data['email'];
-			$data['title']='Online Payment';
-			$data['content']='client/client_home';
-			$this->load->view($this->layout_client,$data);
-		}
-		else
-	   	{
-	    	redirect('client/user/login');
-	   	}
+
+
+			if($this->session->userdata('user_logged_in'))
+	  		{
+	  			$this->load->helper('form');
+				$session_data = $this->session->userdata('user_logged_in');
+		     	$data['email'] = $session_data['email'];
+				$data['title']='Dashboard';
+				$data['content']='client/client_home';
+				$this->load->view($this->layout_client,$data);
+			}
+			else
+		   	{
+		    	redirect('client/user/login');
+		   	}
+		
 	}
+
 	public function logout()
 	{
 		$this->session->unset_userdata('user_logged_in');

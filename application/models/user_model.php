@@ -35,6 +35,21 @@ Class user_model extends CI_Model
 
 	}
 
+	function selectJoinData($table1="",$table2="",$join_con="",$condition=array())
+	{
+		$this->db->select('*');
+		$this->db->from($table1);
+		$this->db->join($table2, $join_con ,'left');
+		if(count($condition)>0)	{	
+	 		$this->db->where($condition);
+	 	}
+		$result = $this->db->get();
+		if($result->num_rows()>0)
+			return $result;
+		else 
+			return false;	
+	}
+
 	function getCount($table='',$condition=array())
 	{
 		$this->db->from($table);

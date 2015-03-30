@@ -193,6 +193,15 @@ function updateRecipientData($recip_data,$recip_id)
 	return $cl_type;
 }
 
+function getRoleByID($user_id)
+{
+	$CI = & get_instance();
+	$role_result = $CI->user_model->selectData( $table="pl_user",$sel = array('role_id'), $con = array('user_id ' => $user_id, 'is_active' => 1 ));
+	foreach ($role_result->result() as $value) {
+		$role_id = $value->role_id;
+	}
+	return $role_id;
+}
 
 function mysqldatetime_to_timestamp($date)
 {
@@ -233,4 +242,62 @@ function mysqldatetime_to_timestamp($date)
     }
     
     return "$difference $periods[$j] {$tense}";
+}
+
+function topupClientData($topup_data)
+{
+	$CI =& get_instance();
+	$CI->load->model('user_model');
+	$topup_id = $CI->user_model->insertData($table="ta_transaction_client",$topup_data);
+    return $topup_id;
+}
+
+function getPendingClientTopup($user_id)
+{
+	$CI = & get_instance();
+	$pending_topup = $CI->user_model->selectData( $table="ta_transaction_client",$sel = array('topup_amount','transaction_time'), $con = array('is_active' => 0 , 'user_id' => $user_id , 'payment_amount' => 0) , $limit= 5);
+	return $pending_topup;
+}
+
+function getSuccessClientTopup($user_id)
+{
+	$CI = & get_instance();
+	$success_topup = $CI->user_model->selectData( $table="ta_transaction_client",$sel = array('topup_amount','transaction_time'), $con = array('is_active' => 1 , 'user_id' => $user_id , 'payment_amount' => 0) , $limit= 5 );
+	return $success_topup;
+}
+
+function topupAdminData($topup_data)
+{
+	$CI =& get_instance();
+	$CI->load->model('user_model');
+	$topup_id = $CI->user_model->insertData($table="ta_transaction_admin",$topup_data);
+    return $topup_id;
+}
+
+function getAdminTopup($user_id)
+{
+	$CI = & get_instance();
+	$success_topup = $CI->user_model->selectData( $table="ta_transaction_admin",$sel = array('topup_amount','transaction_time'), $con = array('is_active' => 1 , 'user_id' => $user_id , 'payment_amount' => 0) , $limit= 5 );
+	return $success_topup;
+}
+
+function getPendingTopupClientDetails()
+{
+	$table1 = "pl_user";
+	$table2 = "ta_transaction_client";
+	$con = array('ta_transaction_client.payment_amount' => 0,'ta_transaction_client.is_active' => 0);
+	$join_con=$table1.".user_id = ".$table2.".user_id";
+	$CI = & get_instance();
+	$pending_topup = $CI->user_model->selectJoinData( $table1,$table2,$join_con,$con);
+	return $pending_topup;
+}
+
+function getUserMeta($user_id,$meta_key)
+{
+	$CI = & get_instance();
+	$data = $CI->user_model->selectData( $table="pl_usermeta",$sel = array('meta_value'), $con = array('is_active' => 1 , 'user_id' => $user_id , 'meta_key' =>$meta_key));
+	foreach ($data->result() as $value) {
+		$meta_value = $value->meta_value;
+	}
+	return $meta_value;
 }
