@@ -36,8 +36,19 @@ function getSuccessClientTopup($user_id)
 function topupAdminData($topup_data)
 {
 	$CI =& get_instance();
-	$CI->load->model('user_model');
+
+	$tot_balance = 0;
+	$balance = $CI->user_model->selectData($table="ta_admin_fund_balance",$selectData=array('total_fund'),$condition=array('fund_id'=>1),$limit="1");
+	if($balance) {
+		$balance = $balance->row();
+		$tot_balance = $balance->total_fund; 
+	}
+
+	$topup_data['admin_balance'] = $tot_balance;
 	$topup_id = $CI->user_model->insertData($table="ta_admin_topup",$topup_data);
+
+	$new_tot = $topup_data['topup_amount'] + $tot_balance;
+	$CI->user_model->updateData($table="ta_admin_fund_balance",array('total_fund'=>$new_tot), array('fund_id'=>1));
     return $topup_id;
 }
 

@@ -46,7 +46,7 @@ class Topup extends MY_Controller {
 					'topup_amount'  => $amount,
 					'topup_status' => 1
 					);
-				$topup_id=topupAdminData($topup_data);
+				$topup_id = topupAdminData($topup_data);
 
 				if($topup_id){
 					redirect('super_admin/admin_home');
