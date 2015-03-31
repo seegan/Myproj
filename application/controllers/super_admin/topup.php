@@ -26,8 +26,9 @@ class Topup extends MY_Controller {
 	public function index()
 	{
 		$session_data = $this->session->userdata('user_logged_in');
+	    $role_id = $session_data['role_id'];
 	    $user_id = $session_data['user_id'];
-	    if($user_id == 1)
+	    if($role_id == 1)
 	    {
 		    $this->load->library('form_validation');
 			$this->form_validation->set_rules('amount', 'Amount', 'trim|is_numeric|required|xss_clean|callback_amountchk');
@@ -41,11 +42,12 @@ class Topup extends MY_Controller {
 			else
 			{
 				$topup_data=array(
-					'user_id' => $user_id,
+					'admin_id' => $user_id,
 					'topup_amount'  => $amount,
-					'is_active' => 1
-				);
-				$topup_id = topupAdminData($topup_data);
+					'topup_status' => 1
+					);
+				$topup_id=topupAdminData($topup_data);
+
 				if($topup_id){
 					redirect('super_admin/admin_home');
 					return "topup sucess";

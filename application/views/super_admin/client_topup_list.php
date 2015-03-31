@@ -62,7 +62,7 @@
 							<td><input type="checkbox" name="clist1"></td>
 							<td><?php echo getUserMeta($value->user_id,'first_name');?></td>
 							<td><?php echo $value->email;?></td>
-							<td><?php echo $value->topup_amount;?></td>
+							<td><?php echo $value->trans_amount;?></td>
 							<td class="text-center">
 								<a href="#" class="btn btn-success client-approve"><i class="fa fa-check-circle"></i>Approve</a>
 							</td>

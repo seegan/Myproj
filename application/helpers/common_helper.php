@@ -244,54 +244,6 @@ function mysqldatetime_to_timestamp($date)
     return "$difference $periods[$j] {$tense}";
 }
 
-function topupClientData($topup_data)
-{
-	$CI =& get_instance();
-	$CI->load->model('user_model');
-	$topup_id = $CI->user_model->insertData($table="ta_transaction_client",$topup_data);
-    return $topup_id;
-}
-
-function getPendingClientTopup($user_id)
-{
-	$CI = & get_instance();
-	$pending_topup = $CI->user_model->selectData( $table="ta_transaction_client",$sel = array('topup_amount','transaction_time'), $con = array('is_active' => 0 , 'user_id' => $user_id , 'payment_amount' => 0) , $limit= 5);
-	return $pending_topup;
-}
-
-function getSuccessClientTopup($user_id)
-{
-	$CI = & get_instance();
-	$success_topup = $CI->user_model->selectData( $table="ta_transaction_client",$sel = array('topup_amount','transaction_time'), $con = array('is_active' => 1 , 'user_id' => $user_id , 'payment_amount' => 0) , $limit= 5 );
-	return $success_topup;
-}
-
-function topupAdminData($topup_data)
-{
-	$CI =& get_instance();
-	$CI->load->model('user_model');
-	$topup_id = $CI->user_model->insertData($table="ta_transaction_admin",$topup_data);
-    return $topup_id;
-}
-
-function getAdminTopup($user_id)
-{
-	$CI = & get_instance();
-	$success_topup = $CI->user_model->selectData( $table="ta_transaction_admin",$sel = array('topup_amount','transaction_time'), $con = array('is_active' => 1 , 'user_id' => $user_id , 'payment_amount' => 0) , $limit= 5 );
-	return $success_topup;
-}
-
-function getPendingTopupClientDetails()
-{
-	$table1 = "pl_user";
-	$table2 = "ta_transaction_client";
-	$con = array('ta_transaction_client.payment_amount' => 0,'ta_transaction_client.is_active' => 0);
-	$join_con=$table1.".user_id = ".$table2.".user_id";
-	$CI = & get_instance();
-	$pending_topup = $CI->user_model->selectJoinData( $table1,$table2,$join_con,$con);
-	return $pending_topup;
-}
-
 function getUserMeta($user_id,$meta_key)
 {
 	$CI = & get_instance();

@@ -39,9 +39,9 @@ class Topup extends MY_Controller {
 		else
 		{
 			$topup_data=array(
-				'user_id' => $user_id,
-				'topup_amount'  => $amount,
-				'is_active' => 0
+				'trans_received_client_id' => $user_id,
+				'trans_amount'  => $amount,
+				'trans_approved' => 0
 				);
 			$topup_id=topupClientData($topup_data);
 			if($topup_id){

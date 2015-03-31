@@ -109,7 +109,7 @@
                                     </span>
                                     <div class="media-body">
                                         <span class="block"><?php echo $value->topup_amount . " Top Up Success";?></span>
-                                        <span class="text-muted"><?php echo mysqldatetime_to_timestamp($value->transaction_time);?></span>
+                                        <span class="text-muted"><?php echo mysqldatetime_to_timestamp($value->topup_time);?></span>
                                     </div>
                                 </li>
                              <?php }}else{?>    
