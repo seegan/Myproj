@@ -20,11 +20,11 @@ class Admin_home extends MY_Controller {
 	{
 	   parent::__construct();
 	   $this->load->model(array('admin_model','user_model'));
-	   getCurrentAccountStatus($role_id = array(1));
 	}
 	
 	public function index()
 	{
+		getCurrentAccountStatus($role_id = array(1));
 		$this->load->helper('form');
 		$data['title']='Dashboard';
 		$data['content']='super_admin/admin_home';

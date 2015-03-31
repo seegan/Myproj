@@ -13,11 +13,11 @@
                 <div class="list-justified-container">
                     <ul class="list-justified text-center">
                         <li>
-                            <p class="size-h3">450</p>
+                            <p class="size-h3"><?php echo getClientsCount(); ?></p>
                             <p class="text-muted">Clients</p>
                         </li>
                         <li>
-                            <p class="size-h3">34000</p>
+                            <p class="size-h3"><?php echo getRecipientsCount(); ?></p>
                             <p class="text-muted">Recipients</p>
                         </li>
                     </ul>

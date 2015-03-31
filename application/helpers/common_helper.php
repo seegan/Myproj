@@ -57,6 +57,20 @@ function getAllClients()
 	return $result;
 }
 
+function getClientsCount()
+{
+	$CI = & get_instance();
+	$cond = array('role_id'=>2, 'is_active'=>1);
+	return $CI->user_model->getCount($table='pl_user',$cond);
+}
+
+function getRecipientsCount()
+{
+	$CI = & get_instance();
+	$cond = array('is_active'=>1);
+	return $CI->user_model->getCount($table='pl_recipients',$cond);
+}
+
 
 function loginRedirect()
 {
