@@ -34,8 +34,8 @@ class Topup extends MY_Controller {
 			$amount = $this->input->post('amount');
 			if($this->form_validation->run() == FALSE)
 			{
-				$data['title']='Dashboard';
-				$data['content']='super_admin/admin_home';
+				$data['title'] = 'Dashboard';
+				$data['content'] = 'super_admin/admin_home';
 				$this->load->view($this->layout_client,$data);
 			}
 			else
@@ -44,8 +44,8 @@ class Topup extends MY_Controller {
 					'user_id' => $user_id,
 					'topup_amount'  => $amount,
 					'is_active' => 1
-					);
-				$topup_id=topupAdminData($topup_data);
+				);
+				$topup_id = topupAdminData($topup_data);
 				if($topup_id){
 					redirect('super_admin/admin_home');
 					return "topup sucess";
